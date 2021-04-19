@@ -2,6 +2,7 @@ import React from "react";
 import Form from "./Form";
 import CardList from "./CardList";
 import Menu from "./Menu"; 
+import './style.css'; 
 
 import {Route, BrowserRouter as Router, Link} from "react-router-dom"; 
 

@@ -4,7 +4,7 @@ import React, {useState} from "react";
 function Form() { 
 
 const initialValues = {
-    productName: " ",
+    destination: " ",
     price: " "
 }
 
@@ -29,7 +29,7 @@ function onChange(e) { 
         <div>
            <form onSubmit={onSubmit}>
 
-               <input value={formValues.productName} name="productName" onChange={onChange} />
+               <input value={formValues.destination} name="destination" onChange={onChange} />
                <input type="number" name="price" value={formValues.price} onChange={onChange} />
 
                <button>Add</button>

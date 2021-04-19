@@ -3,22 +3,22 @@ import Card from "./Card";
 
 
 //ska komma från databas eller en API 
-const arrayOfProducts = [
+const arrayOfTrip = [
 
-    {productName:"Adidas", price:"100"}, 
-    {productName:"Nike", price:"1400"}
+    {destination:"Revoli Playa", description:"In Puerto Rico, Gran Canaria, Spain" ,price:"Total price from: 4 832:-"}, 
+    {destination:"Argo", description:"In Rethymnon, Crete, Greece" ,price:"Total price from: 4 856:-"}
 
 ]
 
 function CardList() { 
     return(
-        <div className="card-box">
-           flera card card
-           {arrayOfProducts.map((e)=> {
+        <div>
+           
+           {arrayOfTrip.map((e)=> {
                return(
-               <Card productName={e.productName} price={e.price}/>
+               <Card destination={e.destination} description={e.description} price={e.price}/>
            )})}
-
+              
         </div>
     )
 }
