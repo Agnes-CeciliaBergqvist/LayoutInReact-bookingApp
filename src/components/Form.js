@@ -6,6 +6,7 @@ function Form() { 
 const initialValues = {
     destination: " ",
     price: " "
+    
 }
 
 const [formValues,setFormValues] = useState(initialValues)
