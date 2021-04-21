@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Form() {
   const initialValues = {
@@ -12,6 +13,7 @@ function Form() {
 
   function onSubmit(e) {
     e.preventDefault();
+   
   }
 
   function onChange(e) {
@@ -91,10 +93,11 @@ function Form() {
               />
             </div>
           </div>
-
+          <Link to="/trips">
           <button className="m-4 shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
             Confirm
           </button>
+          </Link>
         </div>
       </form>
     </div>

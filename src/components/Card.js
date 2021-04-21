@@ -1,6 +1,7 @@
 import React from 'react'; 
 
-function card({destination, description, price}) {
+
+function Card({destination, description, price}) {
     return (
         <div className="container mx-auto flex flex-wrap items-start my-16">
             <div className="lg:w-1/4 w-full lg:pr-3">
@@ -18,4 +19,4 @@ function card({destination, description, price}) {
     )
 }
 
-export default card;
+export default Card;

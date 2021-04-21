@@ -1,5 +1,7 @@
 import React from "react";
 import Card from "./Card"; 
+import MyTrips from "./Trips";
+
 
 
 
@@ -15,13 +17,13 @@ const arrayOfTrip = [
 
 function CardList() { 
     return (
-        <div>
+        <div className="flex flex-row flex-wrap justify-center">
             
             {arrayOfTrip.map((e)=> {
                return(
                <Card key={e.key} destination={e.destination} description={e.description} price={e.price}/>
+               
            )})}
-
 
         </div>
     )
@@ -29,4 +31,4 @@ function CardList() { 
 
 export default CardList; 
 
-//className="flex flex-row justify-center"
+//className="flex flex-row justify-center"<MyTrips key={e.key}/>
