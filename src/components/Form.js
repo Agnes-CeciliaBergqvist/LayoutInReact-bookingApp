@@ -2,8 +2,10 @@ import React, { useState } from "react";
 
 function Form() {
   const initialValues = {
-    destination: " ",
-    price: " ",
+    firstName: " ",
+    lastName: " ",
+    address: " ",
+    mobile: " ",
   };
 
   const [formValues, setFormValues] = useState(initialValues);
@@ -22,28 +24,77 @@ function Form() {
   return (
     <div className="flex justify-center">
       <form onSubmit={onSubmit}>
-        <label for="price" className="text-sm font-medium text-gray-800">
-          Please enter your details:
+        <label className="text-l font-medium text-gray-800">
+          Complete booking:
         </label>
         <div className="mt-2 rounded-md">
-            
-          <input
-            value={formValues.destination}
-            name="destination"
-            onChange={onChange}
-            className="bg-gray-200 focus:ring-indigo-500 focus:border-indigo-500 block pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
-            placeholder="Firstname"
-          />
-          
-          <input            
-            value={formValues.price}
-            name="price"
-            onChange={onChange}
-            className="bg-gray-200 focus:ring-indigo-500 focus:border-indigo-500 block pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
-            placeholder="Lastname"
-          />
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+              Firstname:
+            </label>
+          </div>
+          <div class="md:w-2/3">
+            <input
+              value={formValues.firstName}
+              name="firstName"
+              onChange={onChange}
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              placeholder="Enter firstname"
+            />
+          </div>
+          <div className="mt-2 rounded-md">
+            <div className="md:w-1/3">
+              <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+                Lastname:
+              </label>
+            </div>
+            <div class="md:w-2/3">
+              <input
+                value={formValues.lastName}
+                name="lastName"
+                onChange={onChange}
+                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                placeholder="Enter lastname"
+              />
+            </div>
+          </div>
+          <div className="mt-2 rounded-md">
+            <div className="md:w-1/3">
+              <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+                Address:
+              </label>
+            </div>
+            <div class="md:w-2/3">
+              <input
+                value={formValues.address}
+                name="address"
+                onChange={onChange}
+                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                placeholder="Enter address"
+              />
+            </div>
+          </div>
+          <div className="mt-2 rounded-md">
+            <div className="md:w-1/3">
+              <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+                Mobile:
+              </label>
+            </div>
+            <div class="md:w-2/3">
+              <input
+                type="number"
+                value={formValues.mobile}
+                name="mobile"
+                onChange={onChange}
+                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                placeholder="Enter mobile number"
+              />
+            </div>
+          </div>
 
-          <button className="bg-gray-200 ">Add</button>
+          <button className="m-4 shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
+            Confirm
+          </button>
         </div>
       </form>
     </div>
