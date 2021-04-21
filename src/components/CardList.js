@@ -2,6 +2,7 @@ import React from "react";
 import Card from "./Card"; 
 
 
+
 //ska komma från databas eller en API 
 const arrayOfTrip = [
 
@@ -10,18 +11,20 @@ const arrayOfTrip = [
 
 ]
 
-function CardList() { 
-    return(
-        <div>
-           
-           {arrayOfTrip.map((e)=> {
+function CardList() { 
+    return (
+        <div >
+            
+            {arrayOfTrip.map((e)=> {
                return(
                <Card destination={e.destination} description={e.description} price={e.price}/>
            )})}
-              
+
+
         </div>
     )
 }
 
 export default CardList; 
 
+//className="flex flex-row justify-center"
