@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import 'https://fontawesome.com/';
+
 
 function Menu() {
   return (
@@ -15,7 +15,7 @@ function Menu() {
           <div className="flex space-x-4">
 
           
-         
+          <Link to="/"> <img class="mx-auto h-10 w-auto absolute flex left-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"/></Link>
           <Link to="/" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Last minute</Link>
 
           <Link to="/form" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">My bookings</Link>
@@ -30,8 +30,6 @@ function Menu() {
     </div>
   </div>
 
-  
-  
 </nav>
 
   );
