@@ -10,7 +10,7 @@ function card({destination, description, price}) {
                     <div className="text-gray-800 leading-relaxed mb-6">{description}</div>
                     <img src="./images/jjj.jpeg"/>
                     <div className="text-gray-800 leading-relaxed mb-6">{price}</div>
-                    <button className="text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">See more</button>
+                    <button className="text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">Book</button>
 
                 </div>
             </div>

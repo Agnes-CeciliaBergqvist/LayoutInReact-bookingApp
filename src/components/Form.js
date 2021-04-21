@@ -25,7 +25,7 @@ function Form() {
     <div className="flex justify-center">
       <form onSubmit={onSubmit}>
         <label className="text-l font-medium text-gray-800">
-          Complete booking:
+          Complete booking below:
         </label>
         <div className="mt-2 rounded-md">
           <div className="md:w-1/3">
