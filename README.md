@@ -1,1 +1,1 @@
-Creating an booking page for last minute travel 
+Creating an booking page for last minute travel as a school project. For now this is only the layout, I will keep working on the project during our course in React. 

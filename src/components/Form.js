@@ -2,17 +2,19 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Form() {
+
   const initialValues = {
-    firstName: " ",
-    lastName: " ",
-    address: " ",
-    mobile: " ",
-  };
+    firstName: "",
+    lastName: "",
+    address: "",
+    mobile: ""
+  }
 
   const [formValues, setFormValues] = useState(initialValues);
 
   function onSubmit(e) {
     e.preventDefault();
+    console.log("firstName:", formValues.firstName, "lastName:", formValues.lastName)
    
   }
 
