@@ -14,7 +14,7 @@ function Form() {
 
   function onSubmit(e) {
     e.preventDefault();
-    console.log("firstName:", formValues.firstName, "lastName:", formValues.lastName)
+    // console.log(formValues)
    
   }
 
@@ -22,7 +22,9 @@ function Form() {
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value,
+      
     });
+    // console.log("firstName:", formValues.firstName, "lastName:", formValues.lastName)
   }
 
   return (
