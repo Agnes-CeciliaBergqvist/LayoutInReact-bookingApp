@@ -4,7 +4,7 @@ function MyTrips({key}) { 
     return(
         <div className="container mx-auto flex justify-center my-16">
             <div className="lg:w-2/4 lg:pr-1">
-                <div className="bg-gray-100 rounded-xl p-6">
+                <div className="bg-gray-200 rounded-xl p-6">
             
                     <h2 className="text-2xl font-bold mb-2">Boutique by Doryssa Hotel{key}</h2>
                     <div className="text-gray-800 leading-relaxed mb-6">In Pythagorion, Samos, Greece</div>
