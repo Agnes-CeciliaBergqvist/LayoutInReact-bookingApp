@@ -28,7 +28,7 @@ function Form() {
   }
 
   return (
-    <div className="flex justify-center bg-white mt-8 mx-96">
+    <div className="flex justify-center bg-white mt-8 mx-96 rounded">
       <form onSubmit={onSubmit}>
         <label className="text-l font-medium text-gray-800">
           Complete booking below:

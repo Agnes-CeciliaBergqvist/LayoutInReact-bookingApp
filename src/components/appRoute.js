@@ -4,6 +4,7 @@ import CardList from "./CardList";
 import Menu from "./Menu"; 
 import './style.css'; 
 import MyTrips from "./Trips";
+import Registration from "./Registration"; 
 
 
 
@@ -18,6 +19,7 @@ function AppRoute() { 
                 <Route path="/" exact component={CardList} />
                 <Route path="/form" component={Form} />
                 <Route path="/trips" component={MyTrips} />
+                <Route path="/registration" component={Registration} />
                 
 
             </Router>
