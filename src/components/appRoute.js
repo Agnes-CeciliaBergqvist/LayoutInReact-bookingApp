@@ -5,6 +5,7 @@ import Menu from "./Menu";
 import './style.css'; 
 import MyTrips from "./Trips";
 import Registration from "./Registration"; 
+import Login from "./Login"; 
 
 
 
@@ -20,6 +21,7 @@ function AppRoute() { 
                 <Route path="/form" component={Form} />
                 <Route path="/trips" component={MyTrips} />
                 <Route path="/registration" component={Registration} />
+                <Route path="/login" component={Login} />
                 
 
             </Router>

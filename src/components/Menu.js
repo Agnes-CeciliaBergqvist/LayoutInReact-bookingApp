@@ -27,7 +27,7 @@ function Menu() {
           <Link to="/trips" className="gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">My trips</Link>
            
           <Link to="/registration"><button className="absolute right-12 py-2 px-3 bg-yellow-400 text-yellow-900 rounded">Registrate</button></Link>
-          <button className="absolute right-4 py-2 px-3 bg-yellow-400 text-yellow-900 rounded">Login</button>
+          <Link to="/login"><button className="absolute right-4 py-2 px-3 bg-yellow-400 text-yellow-900 rounded">Login</button></Link>
 
             
           </div>
