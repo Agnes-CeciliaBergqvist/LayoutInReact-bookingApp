@@ -12,6 +12,9 @@ function Registration() {
   }
 
   const [registerValues, setRegisterValues] = useState(initialValue)
+  const [ username, setUsername] = useState(""); 
+  const [loggedIn, setLoggedIn] = useState(false); 
+  const [error, setError] = useState(); 
 
   //Här registerar vi 
   function handleOnChange(e) { 
@@ -23,14 +26,15 @@ function Registration() {
   }
   //Här skickar vi datan till strapi
   function handleOnSubmit(e) { 
-    e.preventDefault();
 
-    console.log(registerValues.username, registerValues.email)
-    const response = axios.post('http://localhost:1337/auth/local/register', {
+    e.preventDefault();
+    axios.post('http://localhost:1337/auth/local/register', {
                                   username: registerValues.username,
                                   email: registerValues.email,
                                   password: registerValues.password,
-                                }).then( (e)=> { console.log(e.data)})
+                                })
+                                .then( (e)=> { if(e.data.user) setLoggedIn(true)})
+                                .catch((err)=> {setError(err.response.data.message[0].messages[0].message)})
 
 
 
@@ -61,15 +65,20 @@ function Registration() {
     // },[])
 
     return (
-        
+
+      <>
+      {loggedIn ? (<div>du kan logga in </div>) :  (
+
 
 <div className="min-h-screen flex items-center justify-center bg-black-50 py-12 px-4 sm:px-6 lg:px-8">
+  
   <div className="max-w-md w-full space-y-8">
     <div>
+    
       <img className="mx-auto h-24 w-auto rounded-full" src={login} alt="login-avatar"/>
       <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Register below</h2> 
     </div>
-    <form className="mt-8 space-y-6" action="#" onSubmit={handleOnSubmit}/>
+    <form className="mt-8 space-y-6" action="#" x-data="{password: '',password_confirm: ''}" onSubmit={handleOnSubmit}>
       <input type="hidden" name="remember" value="true"/>
       <div className="rounded-md shadow-sm -space-y-px">
       <div>
@@ -98,7 +107,7 @@ function Registration() {
       </div>
 
       <div>
-        <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        <button className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
           <span className="absolute left-0 inset-y-0 flex items-center pl-3">
             
             <svg className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -107,12 +116,17 @@ function Registration() {
           </span>
           Registrate
         </button>
+        <div className="text-red-900 font-extrabold m-6">{error}</div>
       </div>
+      </form>
     
   </div>
-</div>       
-        
-    );
+</div> 
+      )} 
+
+</> 
+
+  )   
 }
 
 export default Registration; 
