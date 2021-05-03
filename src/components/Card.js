@@ -9,8 +9,9 @@ function Card({ tripDestination, tripDescription, tripPrice, tripImage }) {
       <div className="text-gray-800 leading-relaxed mb-6">Total price from: {tripPrice}:-</div>
       <button className="text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
         Book
-      </button>
+      </button> 
     </div>
+    
   );
   
 }
