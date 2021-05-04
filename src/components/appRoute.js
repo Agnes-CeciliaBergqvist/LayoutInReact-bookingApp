@@ -6,6 +6,7 @@ import './style.css';
 import MyTrips from "./Trips";
 import Registration from "./Registration"; 
 import Login from "./Login"; 
+import CreateTrip from "./CreateTrip"; 
 
 
 
@@ -22,6 +23,7 @@ function AppRoute() { 
                 <Route path="/trips" component={MyTrips} />
                 <Route path="/registration" component={Registration} />
                 <Route path="/login" component={Login} />
+                <Route path="/createtrip" component={CreateTrip} />
                 
 
             </Router>
