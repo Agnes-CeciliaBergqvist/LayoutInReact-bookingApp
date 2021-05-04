@@ -8,6 +8,7 @@ function API() { 
     useEffect(() => { 
 
         const fetchData = async() => { //denna funktionen måste ligga inuti useEffect annars funkar det ej
+            try {
             const response = await axios.get("https://jsonplaceholder.typicode.com/todos")
 
             console.log(response.data)
@@ -15,6 +16,10 @@ function API() { 
 
             setData(res)
     
+        }
+        catch(err) {
+            console.log(err)
+        }
         }
 
         fetchData(); 
