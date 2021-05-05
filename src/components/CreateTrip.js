@@ -1,41 +1,47 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import axios from "axios"; 
 
 function CreateTrip() {
 
     const initialValues = {
         destination: "", 
         description: "", 
-        price: "", 
-        file: ""
+        price: 0, 
+        tripImage: ""
       }
-      const initialFileValues = { 
-          file: ""
-      }
+     
     
       const [formValues, setFormValues] = useState(initialValues);
-      const [fileValues, setFileValues] = useState(initialFileValues)
-
-    
-      function handleOnSubmit(e) {
-        e.preventDefault();
-        
-        console.log("fileUpload.handleOnSubmit", e.target.files[0])
-        console.log(fileValues)
-        
-       
-      }
     
       function handleOnChange(e) {
         
-        console.log("fileUpload.handleOnChange", e.target.files)
-          
         setFormValues({
           ...formValues,
           [e.target.name]: e.target.value,
           
-        });
-        setFileValues({...fileValues,[e.target.files]:e.target.value})
+        }); 
+      }
+
+
+      function handleOnSubmit(e) {
+        e.preventDefault();
+        axios.post('http://localhost:1337/trips', {
+            destination:formValues.destination,
+            description:formValues.description,
+            price:formValues.price,
+            tripImage:"localhost:1337uploads" + formValues.tripImage //Bilduppladdning funkar ej
+
+        } ).then((res)=>{
+            console.log(res.data)
+        }).then((err)=>{
+            console.log('Well done');
+            console.log(err)
+        })
         
+        
+        
+        
+       
       }
     
       return (
@@ -54,6 +60,7 @@ function CreateTrip() {
                 <input
                   value={formValues.destination}
                   name="destination"
+                  type="text"
                   onChange={handleOnChange}
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                   placeholder="Enter destination"
@@ -69,6 +76,7 @@ function CreateTrip() {
                   <input
                     value={formValues.description}
                     name="description"
+                    type="text"
                     onChange={handleOnChange}
                     className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     placeholder="Enter description"
@@ -85,13 +93,14 @@ function CreateTrip() {
                   <input
                     value={formValues.price}
                     name="price"
+                    type="number"
                     onChange={handleOnChange}
                     className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     placeholder="Enter price"
                   />
                 </div>
               </div>
-              <input name="file" type="file" value={formValues.file} onChange={handleOnChange}></input>
+              <input name="file" type="file" value={formValues.tripImage} onChange={handleOnChange}></input>
               
               
               <button className="m-4 shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">

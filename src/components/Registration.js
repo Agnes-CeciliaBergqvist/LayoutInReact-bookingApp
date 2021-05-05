@@ -120,6 +120,7 @@ function Registration() {
                   />
                 </div>
               </div>
+              
 
               <div>
                 
@@ -141,6 +142,7 @@ function Registration() {
                     </span>
                     Registrate
                   </button> 
+                  <div className="font-extrabold">Already have an account?<Link className="underline" to="./login">Login here</Link></div>
                   <div className="text-red-900 font-extrabold m-6">{error}</div>
                 </div>
               </form>

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import login from "./images/login.png";
+import Registration from "./Registration"; 
+import { Link } from "react-router-dom";
 
 function Login() {
   const initialValues = {
@@ -153,6 +155,7 @@ function Login() {
                 Login
               </button>
             </div>
+            <div className="font-extrabold">Not a member?<Link className="underline" to="./registration">Registrate here</Link></div>
           </form>
         </div>
       </div>
