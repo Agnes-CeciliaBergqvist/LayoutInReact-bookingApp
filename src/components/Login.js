@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import login from "./images/login.png";
-import Registration from "./Registration"; 
-import { Link } from "react-router-dom";
+import login from "./images/login.png"; 
+import { Link, useHistory } from "react-router-dom";
+
 
 function Login() {
   const initialValues = {
-    username: "",
+    email: "",
     password: "",
   };
 
@@ -14,43 +14,57 @@ function Login() {
   const [error, setError] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
   const [username, setUsername] = useState("");
+  const [jwt, setJwt ] = useState(""); 
+  const history = useHistory(); 
+
+
 
   function handleOnChange(e) {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   }
+
+  useEffect(()=>{ 
+    const JWT = localStorage.getItem("jwt")
+    setJwt(JWT); 
+  }, [])
+
+
+
 
   function handleOnSubmit(e) {
     e.preventDefault();
     // axios request till login sidan
     axios
       .post("http://localhost:1337/auth/local", {
-        identifier: formValues.username,
+        identifier: formValues.email,
         password: formValues.password,
       })
       .then((response) => {
         // Handle success.
-       // Handle success.
     console.log('User profile', response.data.user);
     console.log('User token', response.data.jwt);
+    localStorage.setItem("jwt", response.data.jwt);
 
-    // spara response.data.jwt i client sidan 
-      
-    console.log("user data ", response.data)
-    setUsername(response.data.user.username)
+    history.push("/")
+
+    //setJwt(response.data.jwt)
+
+    console.log("user data ", response.data);
+    setUsername(response.data.user.username);
     setAuthenticated(true);
     // ändra state som kommer att rendera nån component vid inloggning
   })
   .catch( (err)=>{
      console.log(err); 
      // if user is not registered show that he needs to be registered
-    setError("Wrong details, please try again or reset your password!")
-    //setError(err.response.message[0].messages[0].message)
+     setError(err.response.data.message[0].messages[0].message)
+    
       });
   }
 
   return (
     <>
-    {authenticated ? <div> Välkommen {username} </div> : 
+    {authenticated ? <div> Welcome, we missed you! {username} </div> : 
       <div className="min-h-screen flex items-center justify-center bg-black-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
@@ -76,14 +90,14 @@ function Login() {
                   Username
                 </label>
                 <input
-                  id="username"
-                  name="username"
-                  autocomplete="username"
-                  type="username"
+                  id="email"
+                  name="email"
+                  autocomplete="email"
+                  type="email"
                   required
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Username"
-                  value={formValues.username}
+                  placeholder="email"
+                  value={formValues.email}
                   onChange={handleOnChange}
                 />
               </div>

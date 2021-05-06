@@ -39,7 +39,7 @@ function Form() {
               Firstname:
             </label>
           </div>
-          <div class="md:w-2/3">
+          <div className="md:w-2/3">
             <input
               value={formValues.firstName}
               name="firstName"
@@ -54,7 +54,7 @@ function Form() {
                 Lastname:
               </label>
             </div>
-            <div class="md:w-2/3">
+            <div className="md:w-2/3">
               <input
                 value={formValues.lastName}
                 name="lastName"
@@ -70,7 +70,7 @@ function Form() {
                 Address:
               </label>
             </div>
-            <div class="md:w-2/3">
+            <div className="md:w-2/3">
               <input
                 value={formValues.address}
                 name="address"
@@ -86,7 +86,7 @@ function Form() {
                 Mobile:
               </label>
             </div>
-            <div class="md:w-2/3">
+            <div className="md:w-2/3">
               <input
                 type="number"
                 value={formValues.mobile}

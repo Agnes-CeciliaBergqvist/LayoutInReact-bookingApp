@@ -56,7 +56,7 @@ function CreateTrip() {
                   Destination: 
                 </label>
               </div>
-              <div class="md:w-2/3">
+              <div className="md:w-2/3">
                 <input
                   value={formValues.destination}
                   name="destination"
@@ -72,7 +72,7 @@ function CreateTrip() {
                     Description: 
                   </label>
                 </div>
-                <div class="md:w-2/3">
+                <div className="md:w-2/3">
                   <input
                     value={formValues.description}
                     name="description"
@@ -89,7 +89,7 @@ function CreateTrip() {
                     Price: 
                   </label>
                 </div>
-                <div class="md:w-2/3">
+                <div className="md:w-2/3">
                   <input
                     value={formValues.price}
                     name="price"
@@ -100,7 +100,7 @@ function CreateTrip() {
                   />
                 </div>
               </div>
-              <input name="file" type="file" value={formValues.tripImage} onChange={handleOnChange}></input>
+              <input name="tripImage" type="file"  onChange={handleOnChange}></input>
               
               
               <button className="m-4 shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">

@@ -7,6 +7,7 @@ import MyTrips from "./Trips";
 import Registration from "./Registration"; 
 import Login from "./Login"; 
 import CreateTrip from "./CreateTrip"; 
+import HomePage from "./HomePage"; 
 
 
 
@@ -24,6 +25,7 @@ function AppRoute() { 
                 <Route path="/registration" component={Registration} />
                 <Route path="/login" component={Login} />
                 <Route path="/createtrip" component={CreateTrip} />
+                <Route path="/homepage" component={HomePage} />
                 
 
             </Router>
