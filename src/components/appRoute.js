@@ -8,6 +8,8 @@ import Registration from "./Registration";
 import Login from "./Login"; 
 import CreateTrip from "./CreateTrip"; 
 import HomePage from "./HomePage"; 
+import ForgotPassword from "./ForgotPassword"; 
+
 
 
 
@@ -19,15 +21,20 @@ function AppRoute() { 
             <Router>
 
                 <Menu/>
-                <Route path="/" exact component={CardList} />
-                <Route path="/form" component={Form} />
-                <Route path="/trips" component={MyTrips} />
-                <Route path="/registration" component={Registration} />
-                <Route path="/login" component={Login} />
-                <Route path="/createtrip" component={CreateTrip} />
-                <Route path="/homepage" component={HomePage} />
-                
 
+                <Route path="/" exact component={CardList} />
+                <Route path="/registration" component={Registration} />
+                <Route path="/login" component={Login} />                
+                <Route path="/homepage" component={HomePage} />
+                <Route path="/forgotpassword" component={ForgotPassword} />
+
+                <Route>
+                    <Route path="/createtrip" component={CreateTrip} />
+                    <Route path="/trips" component={MyTrips} />
+                    <Route path="/form" component={Form} />
+
+
+                </Route>
             </Router>
         </>
     )

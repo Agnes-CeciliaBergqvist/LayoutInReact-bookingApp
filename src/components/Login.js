@@ -135,7 +135,7 @@ function Login() {
                   Remember me
                 </label>
               </div>
-
+              <Link to="./ForgotPassword">
               <div className="text-sm">
                 <a
                   href="#"
@@ -144,6 +144,7 @@ function Login() {
                   Forgot your password?
                 </a>
               </div>
+              </Link>
             </div>
 
             <div>

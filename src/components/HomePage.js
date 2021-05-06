@@ -1,10 +1,14 @@
-import React from 'react'; 
+import React, {useState} from 'react'; 
 import resa1 from "./images/resa1.jpeg"; 
 import resa2 from "./images/resa2.jpeg"; 
 import resa3 from "./images/resa3.jpeg"; 
 import resa4 from "./images/resa4.jpeg"; 
 import resa5 from "./images/resa5.jpeg"; 
 import resa6 from "./images/resa6.jpeg"; 
+
+
+
+//const [notLoggedIn, setNotLoggedIn] = useState(); 
 
 function HomePage() {
     return (
@@ -90,7 +94,7 @@ function HomePage() {
       </dl>
     </div>
   </div>
-  <div className="container mx-auto px-4 ">
+  <div className="container mx-auto px-4 mt-24">
       <section className="py-8 px-4">
           <div className="flex flex-wrap -mx-4">
       <div className="md:w-96 h-96 px-4 mb-8 md:mb-0">
