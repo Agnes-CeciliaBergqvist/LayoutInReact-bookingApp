@@ -6,12 +6,14 @@ function CreateTrip() {
     const initialValues = {
         destination: "", 
         description: "", 
-        price: 0, 
+        price: 0,
         tripImage: ""
       }
      
     
       const [formValues, setFormValues] = useState(initialValues);
+      
+      
     
       function handleOnChange(e) {
         
@@ -20,16 +22,20 @@ function CreateTrip() {
           [e.target.name]: e.target.value,
           
         }); 
+      
       }
 
 
       function handleOnSubmit(e) {
         e.preventDefault();
+       
+
         axios.post('http://localhost:1337/trips', {
             destination:formValues.destination,
             description:formValues.description,
-            price:formValues.price,
-            tripImage:"localhost:1337uploads" + formValues.tripImage //Bilduppladdning funkar ej
+            price:formValues.price
+            //image: "http://localhost:1337/admin/plugins/upload" + formvalues.tripImage //Bilduppladdning funkar ej
+            
 
         } ).then((res)=>{
             console.log(res.data)
@@ -39,8 +45,7 @@ function CreateTrip() {
         })
         
         
-        
-        
+    
        
       }
     
@@ -100,7 +105,7 @@ function CreateTrip() {
                   />
                 </div>
               </div>
-              <input name="tripImage" type="file"  onChange={handleOnChange}></input>
+              <input name="tripImage" type="file" onChange={handleOnChange}></input>
               
               
               <button className="m-4 shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">

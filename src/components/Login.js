@@ -22,7 +22,7 @@ function Login() {
   function handleOnChange(e) {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   }
-
+  
   useEffect(()=>{ 
     const JWT = localStorage.getItem("jwt")
     setJwt(JWT); 
@@ -43,9 +43,12 @@ function Login() {
         // Handle success.
     console.log('User profile', response.data.user);
     console.log('User token', response.data.jwt);
+    //Här sparar vi token i localStorage 
     localStorage.setItem("jwt", response.data.jwt);
 
+    //pushar användaren till card sidan när man lyckas logga in    
     history.push("/")
+    window.location.reload(); //reloadar så att logout kanppen syns istället för login när man loggat in 
 
     //setJwt(response.data.jwt)
 

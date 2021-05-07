@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import login from "./images/login.png";
 import axios from "axios"; 
 
@@ -6,6 +6,29 @@ import axios from "axios";
 
 
 function ForgotPassword() {
+
+  function resetRequest() { 
+    // Request API.
+axios
+.post('http://localhost:1337/auth/reset-password', {
+  code: 'privateCode',
+  password: 'myNewPassword',
+  passwordConfirmation: 'myNewPassword'
+})
+.then(response => {
+  // Handle success.
+  console.log('Your user\'s password has been changed.');
+})
+.catch(error => {
+  // Handle error.
+  console.log('An error occurred:', error.response);
+});
+
+
+
+  }
+
+
 
     const newInitialValue = { 
         email: ""
@@ -86,7 +109,7 @@ function ForgotPassword() {
         
 
             <div>
-              <button
+              <button onClick={resetRequest}
                 type="submit"
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
