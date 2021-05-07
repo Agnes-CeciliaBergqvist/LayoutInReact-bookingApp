@@ -20,7 +20,7 @@ function UploadFile() {
         
         console.log(formData);
         
-        axios.post(`http://localhost:1337/upload`, formData, {
+        axios.post('http://localhost:1337/upload', formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         })
         .then(res => {

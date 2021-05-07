@@ -14,7 +14,7 @@ function HomePage() {
     return (
         <div>
            
-<div className="w-full h-screen py-20 bg-white ">
+<div className="w-full h-full  py-20 bg-cover bg-white ">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="lg:text-center">
       <h2 className="text-base text-yellow-600 font-semibold tracking-wide uppercase">Speedo</h2>
@@ -93,7 +93,7 @@ function HomePage() {
         </div>
       </dl>
     </div>
-  </div>
+  
   <div className="container mx-auto px-4 mt-24">
       <section className="py-8 px-4">
           <div className="flex flex-wrap -mx-4">
@@ -119,7 +119,7 @@ function HomePage() {
         </section>
 
       
-  
+        </div>
 
 
 </div>

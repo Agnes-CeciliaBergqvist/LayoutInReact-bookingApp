@@ -6,7 +6,7 @@ import { Link, useHistory } from "react-router-dom";
 
 function Login() {
   const initialValues = {
-    email: "",
+    username: "",
     password: "",
   };
 
@@ -36,7 +36,7 @@ function Login() {
     // axios request till login sidan
     axios
       .post("http://localhost:1337/auth/local", {
-        identifier: formValues.email,
+        identifier: formValues.username,
         password: formValues.password,
       })
       .then((response) => {
@@ -93,14 +93,14 @@ function Login() {
                   Username
                 </label>
                 <input
-                  id="email"
-                  name="email"
-                  autocomplete="email"
-                  type="email"
+                  id="username"
+                  name="username"
+                  autocomplete="username"
+                  type="username"
                   required
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="email"
-                  value={formValues.email}
+                  placeholder="username"
+                  value={formValues.username}
                   onChange={handleOnChange}
                 />
               </div>
