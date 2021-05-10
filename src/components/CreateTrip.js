@@ -77,70 +77,63 @@ function CreateTrip() {
       }
     
       return (
-        <div className="flex justify-center bg-white mt-8 mx-96 rounded">
+        <div className="min-h-screen bg-gray-100 p-0 sm:p-12">
+          <div className="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
+            <h1 className="text-2xl font-bold mb-8">Create new trip</h1> 
           <form onSubmit={handleOnSubmit}>
-            <label className="text-l font-medium text-gray-800">
-              Add a new trip below: 
-            </label>
-            <div className="mt-2 rounded-md">
-              <div className="md:w-1/3">
-                <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                  Destination: 
-                </label>
-              </div>
-              <div className="md:w-2/3">
+            <div className="relative z-0 w-full mb-5">
                 <input
                   value={formValues.destination}
                   name="destination"
                   type="text"
                   onChange={handleOnChange}
-                  className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                  className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
                   placeholder="Enter destination"
                 />
-              </div>
-              <div className="mt-2 rounded-md">
-                <div className="md:w-1/3">
-                  <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                    Description: 
-                  </label>
                 </div>
-                <div className="md:w-2/3">
+
+                <div className="relative z-0 w-full mb-5">
                   <input
                     value={formValues.description}
                     name="description"
                     type="text"
                     onChange={handleOnChange}
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
                     placeholder="Enter description"
                   />
                 </div>
-              </div>
-              <div className="mt-2 rounded-md">
-                <div className="md:w-1/3">
-                  <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                    Price: 
-                  </label>
-                </div>
-                <div className="md:w-2/3">
+             
+              
+               
+                <div className="relative z-0 w-full mb-5">
                   <input
                     value={formValues.price}
                     name="price"
                     type="number"
                     onChange={handleOnChange}
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
                     placeholder="Enter price"
                   />
                 </div>
+
+              <div className="flex w-full h-32 items-center justify-center bg-grey-lighter">
+                <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white">
+                <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-base leading-normal">Select a file</span>
+                <input name="image" type="file" onChange={handleOnChangeImg} class="hidden"/>
+                </label>
+                
               </div>
-              <input name="image" type="file" onChange={handleOnChangeImg}></input>
               
-              
-              <button className="m-4 shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
+              <button className="w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-pink-500 hover:bg-pink-600 hover:shadow-lg focus:outline-none">
                 Add
               </button>
              
-            </div>
+            
           </form>
+          </div>
         </div>
       );
 }
