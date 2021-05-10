@@ -1,6 +1,7 @@
 import React from "react";
 import Form from "./Form";
 import CardList from "./CardList";
+import Pagination from "./Pagination"; 
 import Menu from "./Menu"; 
 import './style.css'; 
 import MyTrips from "./Trips";
@@ -10,6 +11,7 @@ import CreateTrip from "./CreateTrip";
 import HomePage from "./HomePage"; 
 import ForgotPassword from "./ForgotPassword"; 
 import ResetPassword from "./ResetPassword"; 
+
 
 
 
