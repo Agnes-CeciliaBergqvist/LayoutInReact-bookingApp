@@ -10,7 +10,7 @@ import CreateTrip from "./CreateTrip";
 import HomePage from "./HomePage"; 
 import ForgotPassword from "./ForgotPassword"; 
 import ResetPassword from "./ResetPassword"; 
-import UploadFile from "./UploadFile"; 
+
 
 
 
@@ -35,7 +35,7 @@ function AppRoute() { 
                     <Route path="/createtrip" component={CreateTrip} />
                     <Route path="/trips" component={MyTrips} />
                     <Route path="/form" component={Form} />
-                    <Route path="/uploadfile" component={UploadFile} />
+                    
 
 
 

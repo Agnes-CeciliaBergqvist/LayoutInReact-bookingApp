@@ -6,12 +6,13 @@ function CreateTrip() {
     const initialValues = {
         destination: "", 
         description: "", 
-        price: 0,
-        tripImage: ""
+        price: 0
+        
       }
      
     
       const [formValues, setFormValues] = useState(initialValues);
+      const [fileData, setFileData] = useState(); 
       
       
     
@@ -22,6 +23,15 @@ function CreateTrip() {
           [e.target.name]: e.target.value,
           
         }); 
+      
+      }
+      function handleOnChangeImg(e) {
+        
+      
+          
+          setFileData(e.target.files[0]); 
+          
+        
       
       }
 
@@ -39,6 +49,23 @@ function CreateTrip() {
 
         } ).then((res)=>{
             console.log(res.data)
+
+            const data = new FormData();
+            data.append("files", fileData) 
+            //Vilken collection? 
+            //Vilken docs i collection? 
+            //Vilken field i collection? 
+            data.append("ref", "trip")
+            data.append("refId", res.data.id) //så att vi kan spara så den vet vilden den ska tillhöra
+            data.append("field", "image") 
+
+          //En till axios request för bilden
+          axios.post("http://localhost:1337/upload", data)
+          .then((image) => console.log(image))
+          .catch((error) => console.log(error))
+
+
+
         }).then((err)=>{
             console.log('Well done');
             console.log(err)
@@ -105,7 +132,7 @@ function CreateTrip() {
                   />
                 </div>
               </div>
-              <input name="tripImage" type="file" onChange={handleOnChange}></input>
+              <input name="image" type="file" onChange={handleOnChangeImg}></input>
               
               
               <button className="m-4 shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
