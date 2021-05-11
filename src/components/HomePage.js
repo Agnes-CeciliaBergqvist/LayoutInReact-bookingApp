@@ -94,29 +94,29 @@ function HomePage() {
       </dl>
     </div>
   
-  <div className="container mx-auto px-4 mt-24">
-      <section className="py-8 px-4">
-          <div className="flex flex-wrap -mx-4">
-      <div className="md:w-96 h-96 px-4 mb-8 md:mb-0">
-        <img className="rounded shadow-md" src={resa1} alt="images on trips"/>
+  <div className="ml-1 mr-1 mt-14 pb-10 gap-1 grid grid-cols-1 xl:grid-cols-3 ">
+      
+      
+      <div className="border-2 border-black flex flex-col">
+        <img className="" src={resa1} alt="images on trips"/>
         </div>
-        <div className="md:w-96 h-96 px-4 mb-8 md:mb-0">
-            <img className="rounded shadow-md" src={resa2} alt="images on trips"/>
+        <div className="border-2 border-black flex flex-col">
+            <img className="" src={resa2} alt="images on trips"/>
         </div>
-        <div className="md:w-96 h-96 px-4 mb-8 md:mb-0">
-            <img className="rounded shadow-md" src={resa3} alt="images on trips"/>
+        <div className="border-2 border-black flex flex-col">
+            <img className="" src={resa3} alt="images on trips"/>
         </div>
-        <div className="md:w-96 h-96 px-4 mb-8 md:mb-0">
-            <img className="rounded shadow-md" src={resa4} alt="images on trips"/>
+        <div className="border-2 border-black flex flex-col">
+            <img className="" src={resa4} alt="images on trips"/>
         </div>
-        <div className="md:w-96 h-96 px-4 mb-8 md:mb-0">
-            <img className="rounded shadow-md" src={resa5} alt="images on trips"/>
+        <div className="border-2 border-black flex flex-col">
+            <img className="" src={resa5} alt="images on trips"/>
         </div>
-        <div className="md:w-96 h-96 px-4 mb-8 md:mb-0">
-            <img className="rounded shadow-md" src={resa6} alt="images on trips"/>
+        <div className="border-2 border-black flex flex-col">
+            <img className="" src={resa6} alt="images on trips"/>
+        
         </div>
-        </div>
-        </section>
+        
 
       
         </div>

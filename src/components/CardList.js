@@ -25,6 +25,9 @@ function CardList() { 
                 //window.location.reload(); Funkar ej, bara relodar hela tiden 
 
                 setTrips(response.data)
+                console.log(response.data)
+                console.log(setTrips)
+
             }
 
            fetchTrips()
@@ -48,12 +51,14 @@ function CardList() { 
             {currentTrip.map((currentTrip)=> {
                return(
                <Card key={currentTrip.id} tripDestination={currentTrip.destination} tripDescription={currentTrip.description} tripPrice={currentTrip.price} tripImage={currentTrip.image} loading={loading}/> 
-                 
+                
            )})}
            <Pagination tripsPerPage={tripsPerPage} totalTrips={trips.length} paginate={paginate}/>
 
         </div>
+        
     )
+    console.log(currentTrip.id)
 }
 
 export default CardList; 

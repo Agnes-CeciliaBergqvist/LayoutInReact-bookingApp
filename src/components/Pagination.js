@@ -17,7 +17,7 @@ function Pagination({ tripsPerPage, totalTrips, paginate }) {
 
   return (
     
-    <div class="bg-white py-3 absolute bottom-0 w-full border-t border-gray-200 sm:px-6">
+    <div class="bg-white py-3 mt-40 relative bottom-0 w-full border-t border-gray-200 sm:px-6">
       <div class="flex-1 flex justify-between sm:hidden">
         <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500">
           Previous
