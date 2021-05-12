@@ -17,6 +17,7 @@ import ResetPassword from "./ResetPassword";
 
 
 
+
 import {Route, BrowserRouter as Router, Link} from "react-router-dom"; 
 
 function AppRoute() { 
@@ -33,10 +34,12 @@ function AppRoute() { 
                 <Route path="/forgotpassword" component={ForgotPassword} />
                 <Route path="/resetpassword" component={ResetPassword} />
 
+
                 <Route>
                     <Route path="/createtrip" component={CreateTrip} />
                     <Route path="/trips" component={MyTrips} />
                     <Route path="/form" component={Form} />
+                   
                     
 
 
