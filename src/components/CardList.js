@@ -10,9 +10,9 @@ function CardList() {
 
     const [book, setBook] = useState([]); 
 
-    const BookTrip = (trips) => {
-      console.log("bokad nu, slutför bokning")
-      setBook([...book, trips]); 
+    const BookTrip = (trip) => {
+      setBook([...book, trip])
+      localStorage.setItem("book", JSON.stringify(book))
     };
     
 
@@ -23,7 +23,7 @@ function CardList() {
         const [trips, setTrips] = useState([]);
         const [loading, setLoading] = useState(false); 
         const [currentPage, setCurrentPage] = useState(1); 
-        const [tripsPerPage] = useState(2); 
+        const [tripsPerPage] = useState(3); 
 
     
         useEffect(() => {
@@ -55,7 +55,7 @@ function CardList() {
        return (
 
         // useEffect för att kunna hämta data från databasen
-        <div className="flex flex-row flex-wrap justify-center">
+        <div className={`flex flex-row flex-wrap justify-center`}>
             <button className="w-10 h-10 bg-yellow-100">  ({book.length}) </button> 
             
             {currentTrip.map((currentTrip, idx)=> {
@@ -66,7 +66,7 @@ function CardList() {
                 <div className="text-gray-800 leading-relaxed mb-6">{currentTrip.description}</div>
                 <img className=" w-72 h-52" src={"http://localhost:1337" + currentTrip.image.url} alt="images from the database strapi"/>
                 <div className="text-gray-800 leading-relaxed mb-6">Total price from: {currentTrip.price}:-</div>
-                <button onClick={() => BookTrip(trips)} className="text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
+                <button onClick={() => BookTrip(currentTrip.id)} className="text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
                   Book
                 </button> 
               </div>

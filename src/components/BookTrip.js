@@ -1,11 +1,14 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
+import axios from "axios"
 
 import { Link } from "react-router-dom";
+import {getBooking} from "../utils/booking"
 //import Card from "./Card"; 
 
-function BookTrip({setBook, book}) {
+function BookTrip() {
+  const bookedTrip = JSON.parse(getBooking())
+  console.log(bookedTrip[0])
 
-  
 
   const initialValues = {
     firstName: "",
@@ -34,21 +37,28 @@ function BookTrip({setBook, book}) {
 
 
 
-//   useEffect(() => {
-//     const fetchUserBookings = async() => {
-  
-//         const response = await axios.post("http://localhost:1337/userbookings")
-//         //console.log(response)
-       
-//         //setTrips(response.data)
-//         //console.log(response.data)
-//         //console.log(setTrips)
+  const [trips, setTrips] = useState([]);
+  const [loading, setLoading] =useState(true)
 
-//     }
 
-//    fetchUserBookings()
 
-// }, []);
+  React.useEffect(() => {
+    const fetchTrips = async() => {
+        setLoading(true)
+          const response = await axios.get(`http://localhost:1337/trips/${bookedTrip[0]}`)
+          //console.log(response)
+          //window.location.reload(); Funkar ej, bara relodar hela tiden 
+        console.log(response.data)
+          setTrips(response.data)
+          //console.log(response.data)
+          //console.log(setTrips)
+
+      }
+
+     fetchTrips()
+     setLoading(false)
+
+  }, [bookedTrip]);
 
 
   return (
@@ -69,7 +79,24 @@ function BookTrip({setBook, book}) {
     //   ))}
       
     <div className="flex justify-center bg-white mt-8 mx-96 rounded">
-      
+                                   {trips.length > 1 ? trips.map((currentTrip, idx) => { return(
+                                   <div key={idx} className="bg-gray-200 rounded-xl p-6 m-4">
+<h2 className="text-2xl font-bold mb-2">{currentTrip.destination}</h2>
+<div className="text-gray-800 leading-relaxed mb-6">{currentTrip.description}</div>
+<img className=" w-72 h-52" src={"http://localhost:1337" + currentTrip.image.url} alt="images from the database strapi"/>
+<div className="text-gray-800 leading-relaxed mb-6">Total price from: {currentTrip.price}:-</div>
+</div>)}) : 
+
+
+(
+  <div className="bg-gray-200 rounded-xl p-6 m-4">
+<h2 className="text-2xl font-bold mb-2">{trips.destination}</h2>
+<div className="text-gray-800 leading-relaxed mb-6">{trips.description}</div>
+<img className=" w-72 h-52" src="" alt="images from the database strapi"/>
+<div className="text-gray-800 leading-relaxed mb-6">Total price from: {trips.price}:-</div>
+</div>)
+
+}
      
       <form onSubmit={onSubmit}>
         <label className="text-l font-medium text-gray-800">
