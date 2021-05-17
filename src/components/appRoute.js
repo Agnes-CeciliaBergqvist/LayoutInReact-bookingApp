@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "./Form";
+import BookTrip from "./BookTrip";
 import CardList from "./CardList";
 import Pagination from "./Pagination"; 
 import Menu from "./Menu"; 
@@ -38,7 +38,7 @@ function AppRoute() { 
                 <Route>
                     <Route path="/createtrip" component={CreateTrip} />
                     <Route path="/trips" component={MyTrips} />
-                    <Route path="/form" component={Form} />
+                    <Route path="/booktrip" component={BookTrip} />
                    
                     
 

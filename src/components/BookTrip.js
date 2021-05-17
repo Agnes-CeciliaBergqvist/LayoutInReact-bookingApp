@@ -1,7 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState} from "react";
 
-function Form() {
+import { Link } from "react-router-dom";
+//import Card from "./Card"; 
+
+function BookTrip({setBook, book}) {
+
+  
 
   const initialValues = {
     firstName: "",
@@ -27,8 +31,46 @@ function Form() {
     // console.log("firstName:", formValues.firstName, "lastName:", formValues.lastName)
   }
 
+
+
+
+//   useEffect(() => {
+//     const fetchUserBookings = async() => {
+  
+//         const response = await axios.post("http://localhost:1337/userbookings")
+//         //console.log(response)
+       
+//         //setTrips(response.data)
+//         //console.log(response.data)
+//         //console.log(setTrips)
+
+//     }
+
+//    fetchUserBookings()
+
+// }, []);
+
+
   return (
+    //  <div>
+
+    // //  {/* {book.lenght > 0 && (
+    // //   <button>Clear booking</button>
+    // // )}  */}
+    // //  {book.map((currentTrip, idx)=> (
+    // //             <div key={idx} className="bg-gray-200 rounded-xl p-6 m-4">
+
+    //             <h2 className="text-2xl font-bold mb-2">{currentTrip.destination}</h2>
+    //             <div className="text-gray-800 leading-relaxed mb-6">{currentTrip.description}</div>
+    //             <img className=" w-72 h-52" src={"http://localhost:1337" + currentTrip.image.url} alt="images from the database strapi"/>
+    //             <div className="text-gray-800 leading-relaxed mb-6">Total price from: {currentTrip.price}:-</div>
+    //             </div>
+
+    //   ))}
+      
     <div className="flex justify-center bg-white mt-8 mx-96 rounded">
+      
+     
       <form onSubmit={onSubmit}>
         <label className="text-l font-medium text-gray-800">
           Complete booking below:
@@ -104,8 +146,11 @@ function Form() {
           </Link>
         </div>
       </form>
-    </div>
-  );
+    </div> 
+    //</div>
+     )
+     
 }
 
-export default Form;
+
+export default BookTrip;
