@@ -1,36 +1,59 @@
-import React, { useState } from "react";
-//import axios from "axios"
+import React, { useState, useEffect } from "react";
+import axios from "axios"
 //import { Link } from "react-router-dom";
 //mport {getBooking} from "../utils/booking"
-import { useCart, useDispatchCart } from "./BookReducer";   
+import { useCart } from "./BookReducer";   
 
 
 
 
   // const bookedTrip = JSON.parse(getBooking())
   // console.log(bookedTrip[0])
-  const CartTrip = ({ currenTrip, idx }) => { 
-    const currentTrip = useCart(); 
-    return (
-      <div className="bg-gray-200 rounded-xl p-6 m-4">
+  const CartTrip = ({ currentTrip, idx, destination, description, price }) => { 
 
-      <h2 className="text-2xl font-bold mb-2">{currentTrip.destination}</h2>
-      <div className="text-gray-800 leading-relaxed mb-6">{currentTrip.description}</div>
+    const [setTrips] = useState([]);
+
+    useEffect(() => {
+      const fetchTrips = () => {
+          //setLoading(true)
+          const response = axios.get("http://localhost:1337/trips")
+          //console.log(response)
+    
+         // setTrips(response.data)
+          //console.log(response.data)
+          //console.log(setTrips)
+
+      }
+
+     fetchTrips()
+
+  }, []);
+
+  return (
+    <>
+    
+    <div className={`flex flex-row flex-wrap justify-center`}>
+      <div key={idx} className="bg-gray-200 rounded-xl p-6 m-4">
+       <h2 className="text-2xl font-bold mb-2">{currentTrip}</h2>
+      <div className="text-gray-800 leading-relaxed mb-6">{currentTrip}</div>
       <img className=" w-72 h-52" src="" alt="images from the database strapi"/>
-      <div className="text-gray-800 leading-relaxed mb-6">Total price from: {currentTrip.price}:-</div>
-      <button className="text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
-        Remove
-      </button> 
+      <div className="text-gray-800 leading-relaxed mb-6">Total price from: {currentTrip}:-</div>
+      <button className="text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">Remove</button>
+      
     </div>
-
-
-    )
+   </div>
+   
+   </>
+  )
+  
   }
+  
+  
 
   export default function BookTrip() {
 
-    const currentTrip = useCart(); 
-    const dispatch = useDispatchCart();
+    const currentTrips = useCart(); 
+    //const dispatch = useDispatchCart();
 
 
 
@@ -58,15 +81,15 @@ import { useCart, useDispatchCart } from "./BookReducer";
     
   // }
 
-  if (currentTrip.length === 0) { 
+  if (currentTrips.length === 0) { 
     return(
-      <p>No trip added, please add a trip to procide</p>
+      <p>No trip added, please add a trip to book a trip</p>
     )
   }
 
   return (
     <div>
-      {currentTrip.map((currentTrip, idx) => (
+      {currentTrips.map((currentTrip, idx) => (
        <CartTrip key={idx} trip={currentTrip} index={idx}/>
 
 

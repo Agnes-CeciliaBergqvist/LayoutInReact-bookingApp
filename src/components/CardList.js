@@ -16,7 +16,8 @@ function CardList() {
     // };
     
         //Allows us to fire an dispatch to our reducer
-        const dispatch = useDispatchCart(); 
+        const dispatch = useDispatchCart();
+         
     
         const addToCart = (currentTrip) => { 
           console.log(currentTrip)
@@ -62,20 +63,30 @@ function CardList() {
            
             
             {currentTrip.map((currentTrip, idx)=> {
-               return(
-                <div key={idx} className="bg-gray-200 rounded-xl p-6 m-4">
-
-                <h2 className="text-2xl font-bold mb-2">{currentTrip.destination}</h2>
-                <div className="text-gray-800 leading-relaxed mb-6">{currentTrip.description}</div>
-                <img className=" w-72 h-52" src={"http://localhost:1337" + currentTrip.image.url} alt="images from the database strapi"/>
-                <div className="text-gray-800 leading-relaxed mb-6">Total price from: {currentTrip.price}:-</div>
-                <button onClick={() => addToCart(currentTrip)} className="text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
-                  Book
-                </button> 
-              </div>
-               
-                
-           )})}
+               return (
+                 <div key={idx} className="bg-gray-200 rounded-xl p-6 m-4">
+                   <h2 className="text-2xl font-bold mb-2">
+                     {currentTrip.destination}
+                   </h2>
+                   <div className="text-gray-800 leading-relaxed mb-6">
+                     {currentTrip.description}
+                   </div>
+                   <img
+                     className=" w-72 h-52"
+                     src={"http://localhost:1337" + currentTrip.image.url}
+                     alt="images from the database strapi"
+                   />
+                   <div className="text-gray-800 leading-relaxed mb-6">
+                     Total price from: {currentTrip.price}:-
+                   </div>
+                   <button
+                     onClick={() => addToCart(currentTrip)}
+                     className="text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300"
+                   >
+                     Book
+                   </button>
+                 </div>
+               );})}
            <Pagination tripsPerPage={tripsPerPage} totalTrips={trips.length} paginate={paginate}/>
 
         </div>
@@ -85,4 +96,3 @@ function CardList() {
 }
 
 export default CardList; 
-

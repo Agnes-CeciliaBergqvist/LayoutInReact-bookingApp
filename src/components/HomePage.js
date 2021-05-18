@@ -98,22 +98,22 @@ function HomePage() {
       
       
       <div className="border-2 border-black flex flex-col">
-        <img className="" src={resa1} alt="images on trips"/>
+        <img className="w-full h-full" src={resa1} alt="images on trips"/>
         </div>
         <div className="border-2 border-black flex flex-col">
-            <img className="" src={resa2} alt="images on trips"/>
+            <img className="w-full h-full" src={resa2} alt="images on trips"/>
         </div>
         <div className="border-2 border-black flex flex-col">
-            <img className="" src={resa3} alt="images on trips"/>
+            <img className="w-full h-full" src={resa3} alt="images on trips"/>
         </div>
         <div className="border-2 border-black flex flex-col">
-            <img className="" src={resa4} alt="images on trips"/>
+            <img className="w-full h-full" src={resa4} alt="images on trips"/>
         </div>
         <div className="border-2 border-black flex flex-col">
-            <img className="" src={resa5} alt="images on trips"/>
+            <img className="w-full h-full" src={resa5} alt="images on trips"/>
         </div>
         <div className="border-2 border-black flex flex-col">
-            <img className="" src={resa6} alt="images on trips"/>
+            <img className="w-full h-full" src={resa6} alt="images on trips"/>
         
         </div>
         

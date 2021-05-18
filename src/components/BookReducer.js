@@ -9,7 +9,11 @@ const CartDispatchContext = createContext()
 const reducer = (state, action ) => { 
     switch(action.type) { 
         case "ADD": 
-            return [...state, action.item] //We need to get the new array 
+            return [...state, action.currentTrip]; //We need to get the new array 
+        case "REMOVE":
+            const newArr = [...state]; 
+            newArr.splice(action.idx, 1); 
+            return newArr; 
         default: 
         throw new Error(`unknown action ${action.type}`)
     }

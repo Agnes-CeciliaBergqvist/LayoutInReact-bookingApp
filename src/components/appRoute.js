@@ -11,6 +11,7 @@ import CreateTrip from "./CreateTrip";
 import HomePage from "./HomePage"; 
 import ForgotPassword from "./ForgotPassword"; 
 import ResetPassword from "./ResetPassword"; 
+import ModalConfirmBooking from "./ModalConfirmBooking";
 
 
 
@@ -33,6 +34,7 @@ function AppRoute() { 
                 <Route path="/homepage" component={HomePage} />
                 <Route path="/forgotpassword" component={ForgotPassword} />
                 <Route path="/resetpassword" component={ResetPassword} />
+                <Route path="/modal" component={ModalConfirmBooking} />
 
 
                 <Route>
