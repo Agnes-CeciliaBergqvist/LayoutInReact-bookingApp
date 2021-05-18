@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
-//import {FaAlignRight} from "react-icons/fa"; 
+import {useCart} from "./BookReducer"; 
+
 
 
 
@@ -8,8 +9,7 @@ import { Link } from "react-router-dom";
 
 function Menu() {
 
-
-
+  const currentTrip = useCart(); 
   const [jwt, setJwt] = useState("")
 
 
@@ -87,7 +87,7 @@ function clearLocalStorage() { 
           </Link>
           <Link to="/homepage" className="gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Start</Link>
           <Link to="/" className="gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Last minute</Link>
-          <Link to="/booktrip" className="gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">My bookings/Checkout</Link>
+          <Link to="/booktrip" className="gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">My bookings/Checkout({currentTrip.length})</Link>
           <Link to="/trips" className="gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">My trips</Link>
           <Link to="/createtrip" className="gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add trips</Link>
           <Link to="/registration"><button className="absolute right-24 py-2 px-3 bg-yellow-400 text-yellow-900 rounded-md">Registrate</button></Link>
