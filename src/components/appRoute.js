@@ -1,7 +1,6 @@
 import React from "react";
 import BookTrip from "./BookTrip";
-import CardList from "./CardList";
-import Pagination from "./Pagination"; 
+import CardList from "./CardList"; 
 import Menu from "./Menu"; 
 import './style.css'; 
 import MyTrips from "./Trips";

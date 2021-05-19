@@ -1,5 +1,4 @@
-import React, {useState} from "react";
-import Axios from "axios";
+import React from "react";
 import {useDispatchCart} from "./BookReducer";
 
 
@@ -13,7 +12,7 @@ function Card({ trip, tripDestination, tripDescription, tripPrice, tripImage}) {
    
 
     const BookTrip = (item) => {
-        console.log("item")
+        console.log(item)
         dispatch ({type: "ADD", item}); 
   }; 
   

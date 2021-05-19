@@ -10,15 +10,8 @@ import Card from "./Card";
 export default function CardList() {
 
    
-        //Allows us to fire an dispatch to our reducer
-        //const dispatch = useDispatchCart();
          
-    
-        // const addToCart = (currentTrip) => { 
-        //   console.log(currentTrip)
-        //   dispatch({ type: "ADD", currentTrip})
-        // }  
-        //useState for products 
+        //useState for trips 
         const [trips, setTrips] = useState([]);
         const [loading] = useState(false); 
         const [currentPage, setCurrentPage] = useState(1); 
@@ -56,9 +49,9 @@ export default function CardList() {
           // useEffect för att kunna hämta data från databasen
           <div className="flex flex-row flex-wrap justify-center">
               
-              {trip.map((trip)=> {
+              {trips.map((trip)=> {
                  return(
-                 <Card key={trip.id} tripDestination={trip.destination} tripDescription={trip.description} tripPrice={trip.price} tripImage={trip.image} loading={loading}/> 
+                 <Card trip={trip} key={trip.id} tripDestination={trip.destination} tripDescription={trip.description} tripPrice={trip.price} tripImage={trip.image} loading={loading}/> 
                    
              )})}
              <Pagination tripsPerPage={tripsPerPage} totalTrips={trips.length} paginate={paginate}/>

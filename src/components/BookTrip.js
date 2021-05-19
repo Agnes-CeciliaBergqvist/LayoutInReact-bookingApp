@@ -12,17 +12,11 @@ import { useCart, useDispatchCart } from "./BookReducer";
     return (
       <>
     
-      <div className={`flex flex-row flex-wrap justify-center`}>
+      <div className="flex flex-row flex-wrap justify-center">
         <div key={idx} className="bg-gray-200 rounded-xl p-6 m-4">
         <h2 className="text-2xl font-bold mb-2">{trip.destination}</h2>
         <div className="text-gray-800 leading-relaxed mb-6">{trip.description}</div>
         <img className=" w-72 h-52" src={"http://localhost:1337" + trip.url}  alt="images from the database strapi"/>
-        <dl className="py-2">
-                            {trip.price.toLocaleString("se", {
-                                style: "currency",
-                                currency: "SEK"
-                            })}
-                        </dl>
         <div className="text-gray-800 leading-relaxed mb-6">Total price from: {trip.price}:-</div>
         <button onClick={() => handleRemove(idx)} className="text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">Remove</button>
       
