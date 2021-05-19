@@ -12,6 +12,7 @@ import HomePage from "./HomePage";
 import ForgotPassword from "./ForgotPassword"; 
 import ResetPassword from "./ResetPassword"; 
 import ModalConfirmBooking from "./ModalConfirmBooking";
+import NotLoggedIn from "./NotLoggedIn"; 
 
 
 
@@ -35,6 +36,7 @@ function AppRoute() { 
                 <Route path="/forgotpassword" component={ForgotPassword} />
                 <Route path="/resetpassword" component={ResetPassword} />
                 <Route path="/modal" component={ModalConfirmBooking} />
+                <Route path="/notloggedin" component={NotLoggedIn} />
 
 
                 <Route>

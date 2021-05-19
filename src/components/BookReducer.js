@@ -2,14 +2,13 @@ import React, { useReducer, useContext, createContext} from "react";
 
 //context for storing the state for our cart, each element will be the trip in the cart 
 const CartStateContext = createContext()
-
 //context for holding the dispatch function that lets us fire the action in the user
 const CartDispatchContext = createContext()
 
 const reducer = (state, action ) => { 
     switch(action.type) { 
         case "ADD": 
-            return [...state, action.currentTrip]; //We need to get the new array 
+            return [...state, action.item]; //We need to get the new array 
         case "REMOVE":
             const newArr = [...state]; 
             newArr.splice(action.idx, 1); 
