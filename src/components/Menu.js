@@ -65,7 +65,7 @@ function Menu() {
             </div>
             <div
               className={
-                "lg:flex flex-grow items-center" +
+                "lg:flex flex-grow items-center bg-white" +
                 (navbarOpen ? " flex" : " hidden")
               }
               id="example-navbar-danger"
@@ -151,7 +151,7 @@ function Menu() {
             </div>
             <div
               className={
-                "lg:flex flex-grow items-center" +
+                "lg:flex flex-grow items-center bg-white" +
                 (navbarOpen ? " flex" : " hidden")
               }
               id="example-navbar-danger"

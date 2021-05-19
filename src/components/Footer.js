@@ -10,7 +10,7 @@ function Footer() {
                         
                         
                     </div>
-                    <div class="w-9/12  h-0.5 bg-gray-100 rounded-full"></div>
+                    <div class="w-9/12  h-0.5 bg-yellow-400 rounded-full"></div>
                     <div className="text-black flex flex-col md:items-center f-f-l pt-3">
                         <h1 className="text-2xl font-black">Speedo</h1>
                         <h3 className="font-black">Travel with us!</h3>
@@ -27,7 +27,7 @@ function Footer() {
                         </div>
                        
                     </div>
-                    <div className="w-9/12  h-0.5 bg-gray-100 rounded-full" />
+                    <div className="w-9/12  h-0.5 bg-yellow-400 rounded-full" />
                     
                         <p className="mt-4"> © 2021 by Agnes-Cecilia Bergqvist </p>
                    

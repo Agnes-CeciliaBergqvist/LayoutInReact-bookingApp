@@ -3,14 +3,14 @@ import BookTrip from "./BookTrip";
 import CardList from "./CardList"; 
 import Menu from "./Menu"; 
 import './style.css'; 
-import MyTrips from "./Trips";
+//import MyTrips from "./Trips";
 import Registration from "./Registration"; 
 import Login from "./Login"; 
 import CreateTrip from "./CreateTrip"; 
 import HomePage from "./HomePage"; 
-import ForgotPassword from "./ForgotPassword"; 
-import ResetPassword from "./ResetPassword"; 
-import ModalConfirmBooking from "./ModalConfirmBooking";
+// import ForgotPassword from "./ForgotPassword"; 
+// import ResetPassword from "./ResetPassword"; 
+//import ModalConfirmBooking from "./ModalConfirmBooking";
 import NotLoggedIn from "./NotLoggedIn"; 
 
 
@@ -32,15 +32,15 @@ function AppRoute() { 
                 <Route path="/registration" component={Registration} />
                 <Route path="/login" component={Login} />                
                 <Route path="/homepage" component={HomePage} />
-                <Route path="/forgotpassword" component={ForgotPassword} />
-                <Route path="/resetpassword" component={ResetPassword} />
-                <Route path="/modal" component={ModalConfirmBooking} />
+                {/* <Route path="/forgotpassword" component={ForgotPassword} />
+                <Route path="/resetpassword" component={ResetPassword} /> */}
+                {/* <Route path="/modal" component={ModalConfirmBooking} /> */}
                 <Route path="/notloggedin" component={NotLoggedIn} />
 
 
                 <Route>
                     <Route path="/createtrip" component={CreateTrip} />
-                    <Route path="/trips" component={MyTrips} />
+                    {/* <Route path="/trips" component={MyTrips} /> */}
                     <Route path="/booktrip" component={BookTrip} />
                    
                     
