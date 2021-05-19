@@ -23,7 +23,7 @@ function Menu() {
   return (
     <>
       { jwt ? (
-        <nav className="bg-white relative flex flex-wrap items-center justify-between px-2 py-3 bg-amber-500 mb-3">
+        <nav className="bg-white h-20 relative flex flex-wrap items-center justify-between px-2 py-3 bg-amber-500 mb-3">
           <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
             <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
               <Link to="/homepage">
@@ -109,7 +109,7 @@ function Menu() {
           </div>
         </nav>
       ) : (
-        <nav className="bg-white relative flex flex-wrap items-center justify-between px-2 py-3 bg-amber-500 mb-3">
+        <nav className="bg-white h-20 relative flex flex-wrap items-center justify-between px-2 py-3 bg-amber-500 mb-3">
           <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
             <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
               <Link to="/homepage">
@@ -186,7 +186,7 @@ function Menu() {
 
                 <li className="nav-item">
                   <Link to="/login">
-                    <button className="px-3 py-2 m-1 w-24 flex items-center text-xs uppercase font-bold leading-snug bg-yellow-400 text-yellow-900 rounded-md">
+                    <button className="px-3 py-2 m-1 w-24 flex items-center justify-center text-xs uppercase font-bold leading-snug bg-yellow-400 text-yellow-900 rounded-md">
                       Login
                     </button>
                   </Link>
