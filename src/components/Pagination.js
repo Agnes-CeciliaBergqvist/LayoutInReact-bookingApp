@@ -70,17 +70,3 @@ function Pagination({ tripsPerPage, totalTrips, paginate }) {
         
  
 export default Pagination; 
-{/* <div className="">
-             <div class="">
-             <ul className="pagination">
-             {pageNumbers.map(number => (
-                 <li key={number} className=""> 
-                 <a onClick={() => paginate(number)}  className="">
-                     {number}
-                 </a>
-                </li>
-
-             ))}
-             </ul>
-             </div> 
-        </div> */}

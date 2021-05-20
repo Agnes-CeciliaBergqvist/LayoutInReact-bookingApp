@@ -8,24 +8,25 @@ import Card from "./Card";
 
 
 export default function CardList() {
-
+ 
    
          
         //useState for trips 
         const [trips, setTrips] = useState([]);
-        const [loading] = useState(false); 
-        const [currentPage, setCurrentPage] = useState(1); 
-        const [tripsPerPage] = useState(3); 
+        const [loading, setLoading] = useState(false); 
+        const [currentPage, setCurrentPage] = useState(1); //Vi är på sida ett först 
+        const [tripsPerPage] = useState(3); // Hur många kort vill jag ha på varje sida
 
     
         useEffect(() => {
             const fetchTrips = async() => {
-                //setLoading(true)
+                setLoading(true)
                 const response = await axios.get("http://localhost:1337/trips")
                 //console.log(response)
                 
 
                 setTrips(response.data)
+                setLoading(false)
                 //console.log(response.data)
                 //console.log(setTrips)
 
@@ -33,7 +34,7 @@ export default function CardList() {
 
            fetchTrips()
 
-        }, []);
+        }, []); 
 
         //Get current post 
         const indexOfLastTrip = currentPage * tripsPerPage; 
