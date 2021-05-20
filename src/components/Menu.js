@@ -73,6 +73,7 @@ function Menu() {
               <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="nav-item">
                   <Link
+                    onClick={() => setNavbarOpen(!navbarOpen)}
                     to="/"
                     className="hover:bg-gray-700 hover:text-white px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug"
                     aria-current="page">
@@ -81,6 +82,7 @@ function Menu() {
                 </li>
                 <li className="nav-item">
                   <Link
+                    onClick={() => setNavbarOpen(!navbarOpen)}
                     to="/booktrip"
                     className="hover:bg-gray-700 hover:text-white px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug"
                     aria-current="page">
@@ -89,6 +91,7 @@ function Menu() {
                 </li>
                 <li className="nav-item">
                   <Link
+                    onClick={() => setNavbarOpen(!navbarOpen)}
                     to="/createtrip"
                     className="hover:bg-gray-700 hover:text-white px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug"
                     aria-current="page"
@@ -109,7 +112,7 @@ function Menu() {
           </div>
         </nav>
       ) : (
-        <nav className="bg-white h-20 relative flex flex-wrap items-center justify-between px-2 py-3 bg-amber-500 mb-3">
+        <nav className="bg-white h-20 z-auto relative flex flex-wrap items-center justify-between px-2 py-3 bg-amber-500 mb-3">
           <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
             <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
               <Link to="/homepage">
@@ -159,6 +162,7 @@ function Menu() {
               <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
                 <li className="nav-item">
                   <Link
+                    onClick={() => setNavbarOpen(!navbarOpen)}
                     to="/homepage"
                     className="hover:bg-gray-700 hover:text-white px-3 py-2 m-1 flex items-center text-xs uppercase font-bold leading-snug"
                     aria-current="page"
@@ -168,6 +172,7 @@ function Menu() {
                 </li>
                 <li className="nav-item">
                 <Link
+                    onClick={() => setNavbarOpen(!navbarOpen)}
                     to="/notloggedin"
                     className="hover:bg-gray-700 hover:text-white px-3 py-2 m-1 flex items-center text-xs uppercase font-bold leading-snug"
                     aria-current="page"
@@ -178,7 +183,7 @@ function Menu() {
 
                 <li className="nav-item">
                   <Link to="/registration">
-                    <button className="px-3 py-2 m-1 w-24 flex items-center text-xs uppercase font-bold leading-snug bg-yellow-400 text-yellow-900 rounded-md">
+                    <button onClick={() => setNavbarOpen(!navbarOpen)} className="px-3 py-2 m-1 w-24 flex items-center text-xs uppercase font-bold leading-snug bg-yellow-400 text-yellow-900 rounded-md">
                       Registrate
                     </button>
                   </Link>
@@ -186,7 +191,7 @@ function Menu() {
 
                 <li className="nav-item">
                   <Link to="/login">
-                    <button className="px-3 py-2 m-1 w-24 flex items-center justify-center text-xs uppercase font-bold leading-snug bg-yellow-400 text-yellow-900 rounded-md">
+                    <button onClick={() => setNavbarOpen(!navbarOpen)} className="px-3 py-2 m-1 w-24 flex items-center justify-center text-xs uppercase font-bold leading-snug bg-yellow-400 text-yellow-900 rounded-md">
                       Login
                     </button>
                   </Link>
