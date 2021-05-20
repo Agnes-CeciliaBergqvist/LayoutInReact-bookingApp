@@ -27,7 +27,7 @@ export default function CardList() {
 
                 setTrips(response.data)
                 setLoading(false)
-                //console.log(response.data)
+                console.log(response.data)
                 //console.log(setTrips)
 
             }
@@ -49,8 +49,8 @@ export default function CardList() {
 
           // useEffect för att kunna hämta data från databasen
           <div className="flex flex-row flex-wrap justify-center">
-              
-              {trips.map((trip)=> {
+              {/* hade trips här innan men då funkar ej pagination */}
+              {trip.map((trip)=> {
                  return(
                  <Card trip={trip} key={trip.id} tripDestination={trip.destination} tripDescription={trip.description} tripPrice={trip.price} tripImage={trip.image} loading={loading}/> 
                    
