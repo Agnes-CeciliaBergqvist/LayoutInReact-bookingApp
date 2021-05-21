@@ -55,8 +55,10 @@ import Modal from "react-modal";
     }
     //State
     const [modalOpen, setOpen] = useState(false) 
-    const[modalFormValues, setModalFormValues] = useState(modalInitialValues)
-    const [userId, setUserId] = useState(null) 
+    const [modalFormValues, setModalFormValues] = useState(modalInitialValues)
+    const [username, setUsername] = useState(localStorage.getItem("username"))
+    const [userId, setUserId] = useState(localStorage.getItem("userId")) 
+    const [token, setToken] = useState(localStorage.getItem("jwt"))
 
     useEffect(() => {
       const userId = localStorage.getItem("userId")
@@ -92,15 +94,26 @@ import Modal from "react-modal";
     async function onHandleSubmit(e) {
 
         e.preventDefault();
-
+        //Här är request till user_bookings 
         try {
-            const response = await axios.post("http://localhost:1337/user-bookings", {
+            const response = await axios.post("http://localhost:1337/user-bookings", 
+          {
             name: modalFormValues.name,
             mobile:Number(modalFormValues.mobile),
             fromDate: modalFormValues.fromDate,
-            toDate: modalFormValues.toDate
-        }) 
+            toDate: modalFormValues.toDate,
+            users_permissions_user:userId,
+            tripId: tripId
+          },  
+          { 
+                headers: {
+                    Authorization: `Bearer ${token}`, 
+                
+            } }
+            ) 
         console.log("added to userCart",response)
+        console.log("added to userCart",tripId)
+
         } 
         catch(error) {
             console.log(error.data)

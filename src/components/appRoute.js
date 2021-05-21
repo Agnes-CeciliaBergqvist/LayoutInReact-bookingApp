@@ -3,11 +3,12 @@ import BookTrip from "./BookTrip";
 import CardList from "./CardList"; 
 import Menu from "./Menu"; 
 import './style.css'; 
-//import MyTrips from "./Trips";
+import MyTrips from "./MyTrips";
 import Registration from "./Registration"; 
 import Login from "./Login"; 
 import CreateTrip from "./CreateTrip"; 
 import HomePage from "./HomePage"; 
+import API from "./API"; 
 // import ForgotPassword from "./ForgotPassword"; 
 // import ResetPassword from "./ResetPassword"; 
 //import ModalConfirmBooking from "./ModalConfirmBooking";
@@ -40,8 +41,9 @@ function AppRoute() { 
 
                 <Route>
                     <Route path="/createtrip" component={CreateTrip} />
-                    {/* <Route path="/trips" component={MyTrips} /> */}
+                    <Route path="/mytrips" component={MyTrips} />
                     <Route path="/booktrip" component={BookTrip} />
+                    <Route path="/api" component={API} />
                    
                     
 

@@ -12,7 +12,7 @@ function Login() {
 
   const [formValues, setFormValues] = useState(initialValues);
   const [error, setError] = useState("");
-  const [authenticated, setAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState("");
   const [username, setUsername] = useState("");
   const [jwt, setJwt ] = useState(""); 
   const history = useHistory(); 
@@ -41,23 +41,25 @@ function Login() {
       })
       .then((response) => {
         // Handle success.
-    console.log('User profile', response.data.user);
-    console.log('User token', response.data.jwt);
-    //Här sparar vi token i localStorage 
-    localStorage.setItem("jwt", response.data.jwt);
+      console.log('User profile', response.data.user);
+      console.log('User token', response.data.jwt);
+      //Här sparar vi token i localStorage 
+      localStorage.setItem("jwt", response.data.jwt);
+      localStorage.setItem("userId", response.data.user.id)
+      localStorage.setItem("username", response.data.user.username)
 
-    //pushar användaren till card sidan när man lyckas logga in    
-    history.push("/")
-    window.location.reload(); //reloadar så att logout kanppen syns istället för login när man loggat in 
+      //pushar användaren till card sidan när man lyckas logga in    
+      history.push("/")
+      window.location.reload(); //reloadar så att logout kanppen syns istället för login när man loggat in 
 
-    //setJwt(response.data.jwt)
+      //setJwt(response.data.jwt)
 
     console.log("user data ", response.data);
     setUsername(response.data.user.username);
     setAuthenticated(true);
     // ändra state som kommer att rendera nån component vid inloggning
   })
-  .catch( (err)=>{
+    .catch( (err)=>{
      console.log(err); 
      // if user is not registered show that he needs to be registered
      setError(err.response.data.message[0].messages[0].message)
@@ -68,6 +70,7 @@ function Login() {
   return (
     <>
     {authenticated ? <div> Welcome, we missed you! {username} </div> : 
+
       <div className="min-h-screen flex items-center justify-center bg-black-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
