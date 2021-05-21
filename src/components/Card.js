@@ -4,7 +4,7 @@ import {useDispatchCart} from "./BookReducer";
 
 
 
-function Card({ trip, tripDestination, tripDescription, tripPrice, tripImage}) {
+function Card({ trip, tripId, tripDestination, tripDescription, tripPrice, tripImage}) {
 
     
     const dispatch = useDispatchCart(); 
@@ -13,7 +13,8 @@ function Card({ trip, tripDestination, tripDescription, tripPrice, tripImage}) {
 
     const BookTrip = (item) => {
         console.log(item)
-        dispatch ({type: "ADD", item}); 
+        dispatch ({type: "ADD", item}) 
+        localStorage.setItem("productsInCart", `${tripId}`) 
   }; 
   
 

@@ -112,7 +112,7 @@ import Modal from "react-modal";
             } }
             ) 
         console.log("added to userCart",response)
-        console.log("added to userCart",tripId)
+        //console.log("added to userCart",tripId)
 
         } 
         catch(error) {

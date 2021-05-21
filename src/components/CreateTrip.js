@@ -13,6 +13,7 @@ function CreateTrip() {
     
       const [formValues, setFormValues] = useState(initialValues);
       const [fileData, setFileData] = useState(); 
+      const [error, setError] = useState(""); 
       
       
     
@@ -69,6 +70,8 @@ function CreateTrip() {
         }).then((err)=>{
             console.log('Well done');
             console.log(err)
+            
+
         })
         
         
@@ -130,6 +133,8 @@ function CreateTrip() {
               <button className="w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-pink-500 hover:bg-pink-600 hover:shadow-lg focus:outline-none">
                 Add
               </button>
+              <h1 className="bg-red-800">{error}</h1> 
+              {/* detta error syns bara i consolen */}
              
             
           </form>
