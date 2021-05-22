@@ -133,8 +133,8 @@ import Modal from "react-modal";
 
     if (items.length === 0) {
         return (
-            <main>
-                <p>Cart is empty</p>
+            <main className="h-screen">
+                <h1 className="text-2xl font-black mt-40">Cart is empty, go and book a trip!</h1>
             </main>
         );
     }

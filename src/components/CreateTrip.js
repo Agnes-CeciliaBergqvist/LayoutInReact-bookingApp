@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from "axios"; 
+import { Link, useHistory } from 'react-router-dom';
 
 function CreateTrip() {
 
@@ -14,6 +15,7 @@ function CreateTrip() {
       const [formValues, setFormValues] = useState(initialValues);
       const [fileData, setFileData] = useState(); 
       const [error, setError] = useState(""); 
+      
       
       
     
@@ -45,20 +47,20 @@ function CreateTrip() {
             destination:formValues.destination,
             description:formValues.description,
             price:formValues.price
-            //image: "http://localhost:1337/admin/plugins/upload" + formvalues.tripImage //Bilduppladdning funkar ej
-            
+
 
         } ).then((res)=>{
             console.log(res.data)
 
             const data = new FormData();
             data.append("files", fileData) 
-            //Vilken collection? 
-            //Vilken docs i collection? 
-            //Vilken field i collection? 
             data.append("ref", "trip")
             data.append("refId", res.data.id) //så att vi kan spara så den vet vilden den ska tillhöra
             data.append("field", "image") 
+
+            //window.location.reload()
+
+           
 
           //En till axios request för bilden
           axios.post("http://localhost:1337/upload", data)
@@ -80,6 +82,7 @@ function CreateTrip() {
       }
     
       return (
+        
         <div className="min-h-screen bg-gray-100 p-0 sm:p-12">
           <div className="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
             <h1 className="text-2xl font-bold mb-8">Create new trip</h1> 
