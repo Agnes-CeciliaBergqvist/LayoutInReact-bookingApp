@@ -35,7 +35,7 @@ import Modal from "react-modal";
 
     const customStyles = {
         content: {
-            background: "yellow",
+            background: "#391f56",
             top: '50%',
             left: '50%',
             right: 'auto',
@@ -150,7 +150,7 @@ import Modal from "react-modal";
             />
           ))}
           <button
-            className="h-2/4 px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-pink-500 hover:bg-pink-600 hover:shadow-lg focus:outline-none"
+            className="h-2/4 px-6 py-3 mt-48 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-pink-500 hover:bg-pink-600 hover:shadow-lg focus:outline-none"
             onClick={openModal}
           >
             {" "}
@@ -164,11 +164,13 @@ import Modal from "react-modal";
             ariaHideApp={false}
             contentLabel="Add to cart Modal"
           >
-            <button onClick={closeModal}>(X)</button>
-            <div> Enter your travel details so we can book your trip.</div>
-            <form className="my-12" onSubmit={onHandleSubmit}>
+            <button className="bg-pink-500 rounded-full h-10 w-10 text-white font-bold" onClick={closeModal}>X</button>
+            <div className="text-white font-bold mt-7"> Enter your travel details so we can book your trip.</div>
+
+            <form className="my-12 flex flex-row" onSubmit={onHandleSubmit}>
+              <div className="bg-blue-500 p-2 w-full m-2 mt-8 rounded ">
               <input
-                className="input-border mx-1"
+                className="input-border mx-1 h-10 rounded"
                 type="text"
                 name="name"
                 placeholder="Complete name"
@@ -177,9 +179,9 @@ import Modal from "react-modal";
                 onChange={onHandleChange}
               />
 
-              <span>from</span>
+              <span>From?</span>
               <input
-                className="input-border mx-1"
+                className="input-border mx-1 h-10 rounded"
                 type="date"
                 name="fromDate"
                 placeholder="Travel date"
@@ -188,9 +190,9 @@ import Modal from "react-modal";
                 onChange={onHandleChange}
               />
 
-              <span>to</span>
+              <span>To?</span>
               <input
-                className="input-border mx-1"
+                className="input-border mx-1 h-10 rounded"
                 type="date"
                 name="toDate"
                 placeholder="Home date"
@@ -200,7 +202,7 @@ import Modal from "react-modal";
               />
 
               <input
-                className="input-border mx-1"
+                className="input-border mx-1 h-10 rounded"
                 type="number"
                 name="mobile"
                 placeholder="Mobile number"
@@ -208,9 +210,10 @@ import Modal from "react-modal";
                 value={modalFormValues.mobile}
                 onChange={onHandleChange}
               />
+              </div>
 
-              <button className="btn bg-pink-500" type="submit">
-                Confirm trip.
+              <button className="btn text-white font-bold bg-gradient-to-r from-pink-600 to-purple-500 rounded-full h-24 w-24 flex items-center justify-center p-5 " type="submit">
+                Confirm
               </button>
             </form>
           </Modal>

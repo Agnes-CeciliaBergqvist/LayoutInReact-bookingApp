@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from "axios"; 
-import { Link, useHistory } from 'react-router-dom';
+
 
 function CreateTrip() {
 
@@ -14,7 +14,7 @@ function CreateTrip() {
     
       const [formValues, setFormValues] = useState(initialValues);
       const [fileData, setFileData] = useState(); 
-      const [error, setError] = useState(""); 
+      //const [error, setError] = useState(""); 
       
       
       
@@ -60,8 +60,7 @@ function CreateTrip() {
 
             //window.location.reload()
 
-           
-
+          
           //En till axios request för bilden
           axios.post("http://localhost:1337/upload", data)
           .then((image) => console.log(image))
@@ -70,11 +69,21 @@ function CreateTrip() {
 
 
         }).then((err)=>{
+          
             console.log('Well done');
             console.log(err)
             
 
         })
+
+        if (axios === true) { 
+          return(
+            console.log( "hej")
+            // <h1 className="bg-red-800">well done</h1>
+            
+          )
+
+        }
         
         
     
@@ -83,9 +92,11 @@ function CreateTrip() {
     
       return (
         
+        
         <div className="min-h-screen bg-gray-100 p-0 sm:p-12">
           <div className="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
             <h1 className="text-2xl font-bold mb-8">Create new trip</h1> 
+
           <form onSubmit={handleOnSubmit}>
             <div className="relative z-0 w-full mb-5">
                 <input
@@ -108,10 +119,12 @@ function CreateTrip() {
                     placeholder="Enter description"
                   />
                 </div>
+                
              
               
                
                 <div className="relative z-0 w-full mb-5">
+              
                   <input
                     value={formValues.price}
                     name="price"
@@ -136,9 +149,7 @@ function CreateTrip() {
               <button className="w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-pink-500 hover:bg-pink-600 hover:shadow-lg focus:outline-none">
                 Add
               </button>
-              <h1 className="bg-red-800">{error}</h1> 
-              {/* detta error syns bara i consolen */}
-             
+              
             
           </form>
           </div>
