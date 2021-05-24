@@ -139,7 +139,7 @@ import Modal from "react-modal";
         );
     }
     return (
-      <>
+      <div className="h-screen">
         <div className="flex flex-row flex-wrap justify-center pt-14">
           {items.map((item, idx) => (
             <CartTrip
@@ -167,7 +167,7 @@ import Modal from "react-modal";
             <button className="bg-pink-500 rounded-full h-10 w-10 text-white font-bold" onClick={closeModal}>X</button>
             <div className="text-white font-bold mt-7"> Enter your travel details so we can book your trip.</div>
 
-            <form className="my-12 flex flex-row" onSubmit={onHandleSubmit}>
+            <form className="mb-12 flex flex-row" onSubmit={onHandleSubmit}>
               <div className="bg-blue-500 p-2 w-full m-2 mt-8 rounded ">
               <input
                 className="input-border mx-1 h-10 rounded"
@@ -218,6 +218,6 @@ import Modal from "react-modal";
             </form>
           </Modal>
         </div>
-      </>
+      </div>
     );
 }

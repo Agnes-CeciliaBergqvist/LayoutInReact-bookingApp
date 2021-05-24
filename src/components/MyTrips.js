@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
-import OneTrip from "./OneTrip"; 
+import Booking from "./Booking"; 
 
 function MyTrips() { 
 
@@ -18,7 +18,7 @@ function MyTrips() { 
         const fetchData = async () => {
             
 
-           const response =  axios.get(`http://localhost:1337/user-bookings?user_permissions_user.id=${userId}`,
+           const response = await axios.get(`http://localhost:1337/user-bookings?users_permissions_user.id=${userId}`,
            { 
                headers: {
                    Authorization: `Bearer ${token}`, 
@@ -43,12 +43,15 @@ function MyTrips() { 
     return(
     
        <div>
-           {tripData.map((trip) => {
+           {tripData.map((booking) => {
                return(
-                <OneTrip key={trip.id}
-                 name={trip.name} 
-                 fromDate={trip.fromDate}
-                  toDate={trip.toDate} />
+                <Booking key={booking.id}
+                    name={booking.name} 
+                    fromDate={booking.fromDate}
+                    toDate={booking.toDate}
+                    mobile={booking.mobile}
+                    
+                 />
                )
 
 
