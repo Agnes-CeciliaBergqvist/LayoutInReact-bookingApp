@@ -11,7 +11,7 @@ function MyTrips() { 
 
     useEffect(() => { 
 
-        console.log(userId)
+        
 
         const fetchData = async () => {
             

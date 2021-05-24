@@ -1,4 +1,4 @@
-import React, {useState} from 'react'; 
+import React from 'react'; 
 import resa1 from "./images/resa1.jpeg"; 
 import resa2 from "./images/resa2.jpeg"; 
 import resa3 from "./images/resa3.jpeg"; 
@@ -7,8 +7,6 @@ import resa5 from "./images/resa5.jpeg";
 import resa6 from "./images/resa6.jpeg"; 
 
 
-
-//const [notLoggedIn, setNotLoggedIn] = useState(); 
 
 function HomePage() {
     return (
