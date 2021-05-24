@@ -14,7 +14,7 @@ function Login() {
   const [error, setError] = useState("");
   const [authenticated, setAuthenticated] = useState("");
   const [username, setUsername] = useState("");
-  const [ jwt, setJwt ] = useState(""); 
+  const [, setJwt ] = useState(""); 
   const history = useHistory(); 
 
 
@@ -47,6 +47,7 @@ function Login() {
       localStorage.setItem("jwt", response.data.jwt);
       localStorage.setItem("userId", response.data.user.id)
       localStorage.setItem("username", response.data.user.username)
+      localStorage.setItem("role", response.data.user.role.type)
 
       //pushar användaren till card sidan när man lyckas logga in    
       history.push("/")

@@ -56,6 +56,7 @@ import Modal from "react-modal";
     const [modalFormValues, setModalFormValues] = useState(modalInitialValues)
     const [userId, setUserId] = useState(localStorage.getItem("userId")) 
     const [token] = useState(localStorage.getItem("jwt"))
+    console.log("VALUES", modalFormValues)
 
     useEffect(() => {
       const userId = localStorage.getItem("userId")

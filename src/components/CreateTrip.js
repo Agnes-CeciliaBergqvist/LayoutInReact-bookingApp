@@ -15,8 +15,9 @@ function CreateTrip() {
     
       const [formValues, setFormValues] = useState(initialValues);
       const [fileData, setFileData] = useState(); 
-      const [admin, setAdmin] = useState("role"); 
-      
+      const admin = localStorage.getItem("role")
+      const [success, setSuccess] = useState(false)
+      const [noFile, setNoFile] = useState(false)
       
       
       
@@ -44,6 +45,11 @@ function CreateTrip() {
 
       function handleOnSubmit(e) {
         e.preventDefault();
+
+        if(!fileData) {
+          setNoFile(true)
+          return "test"
+        }
        
 
         axios.post('http://localhost:1337/trips', {
@@ -68,18 +74,20 @@ function CreateTrip() {
           axios.post("http://localhost:1337/upload", data)
           .then((image) => console.log(image))
           .catch((error) => console.log(error))
-
-         
-          setAdmin(true);
           
 
 
-        }).then((err)=>{
+        }).then(()=>{
 
 
          
-            console.log('Well done');
-            console.log(err)
+          setFormValues(initialValues)
+          setFileData(null)
+          setSuccess(true)
+          setNoFile(false)
+
+          
+
 
             
 
@@ -91,7 +99,7 @@ function CreateTrip() {
     
       return (
         <>
-        { admin ? (
+        { admin === "admin" ? (
 
 
         <div className="min-h-screen bg-gray-100 p-0 sm:p-12">
@@ -108,6 +116,7 @@ function CreateTrip() {
                 onChange={handleOnChange}
                 className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
                 placeholder="Enter destination"
+                required
               />
               </div>
 
@@ -119,6 +128,7 @@ function CreateTrip() {
                   onChange={handleOnChange}
                   className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
                   placeholder="Enter description"
+                  required
                 />
               </div>
               
@@ -134,6 +144,7 @@ function CreateTrip() {
                   onChange={handleOnChange}
                   className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
                   placeholder="Enter price"
+                  required
                 />
               </div>
 
@@ -143,14 +154,17 @@ function CreateTrip() {
               <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
               </svg>
               <span className="mt-2 text-base leading-normal">Select a image</span>
-              <input name="image" type="file" onChange={handleOnChangeImg} className="hidden"/>
+              <input name="image" type="file" onChange={handleOnChangeImg} className="hidden" />
+              {noFile && <p className="text-red-600">Must have an image</p>}
               </label>
+
               
             </div>
             
             <button className="w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-pink-500 hover:bg-pink-600 hover:shadow-lg focus:outline-none">
               Add
             </button>
+            {success && <p className="bg-green-500 py-3 rounded-md mt-1">Trip added</p>}
             
           
         </form>
