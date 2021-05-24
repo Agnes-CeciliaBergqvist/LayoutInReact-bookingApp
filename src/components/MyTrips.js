@@ -1,19 +1,17 @@
-import axios from 'axios';
+import axios from "axios";
 import React, {useState, useEffect} from 'react';
 import Booking from "./Booking"; 
 
 function MyTrips() { 
 
     const [tripData, setTripData] = useState([])
-    const [userId, setUserId] = useState(localStorage.getItem("userId"))
-    const [token, setToken] = useState(localStorage.getItem("jwt"))
+    const [userId] = useState(localStorage.getItem("userId"))
+    const [token] = useState(localStorage.getItem("jwt"))
 
 
     useEffect(() => { 
 
         console.log(userId)
-
-        //"http://localhost:1337/user-bookings?user_permissions_user.id=14"
 
         const fetchData = async () => {
             
@@ -35,14 +33,25 @@ function MyTrips() { 
 
     }, [])
 
+    if (tripData.length === 0 ) { 
+        return( 
+            <div className="h-screen">
+            <h1 className="text-2xl font-black mt-40">You dont have any bookings yet </h1>
+            </div>
+        )
+    }
+
 
 
 
 
 
     return(
-    
-       <div>
+    <div className="h-screen">
+       
+           <h1 className="text-4xl font-bold">Bookings</h1>
+           <p className="text-2xl">Below you see your booked trips</p>
+           <div className="flex flex-row flex-wrap justify-center ">
            {tripData.map((booking) => {
                return(
                 <Booking key={booking.id}
@@ -50,12 +59,14 @@ function MyTrips() { 
                     fromDate={booking.fromDate}
                     toDate={booking.toDate}
                     mobile={booking.mobile}
+                    destination={booking.trip}
                     
                  />
                )
 
 
            } ) }
+           </div>
            </div>
            )
             }

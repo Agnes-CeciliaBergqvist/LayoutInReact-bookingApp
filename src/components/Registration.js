@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import login from "./images/login.png";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Login from "./Login";
 
 function Registration() {
@@ -12,11 +12,10 @@ function Registration() {
   };
 
   const [registerValues, setRegisterValues] = useState(initialValue);
-  //const [username, setUsername] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const [error, setError] = useState();
-  //const [history] = useHistory(); 
-  //Här registerar vi
+
+
   function handleOnChange(e) {
     setRegisterValues({
       ...registerValues,
@@ -25,7 +24,7 @@ function Registration() {
   }
 
 
-  //Här skickar vi datan till strapi
+  //Sending the data to Strapi 
   function handleOnSubmit(e) {
     e.preventDefault();
     axios
@@ -72,7 +71,7 @@ function Registration() {
               <input type="hidden" name="remember" value="true" />
               <div className="rounded-md shadow-sm -space-y-px">
                 <div>
-                  <label for="username" className="sr-only">
+                  <label htmlFor="username" className="sr-only">
                     Username
                   </label>
                   <input
@@ -80,7 +79,7 @@ function Registration() {
                     name="username"
                     value={registerValues.username}
                     onChange={handleOnChange}
-                    autocomplete="username"
+                    autoComplete="username"
                     type="text"
                     required
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -88,7 +87,7 @@ function Registration() {
                   />
                 </div>
                 <div>
-                  <label for="email-address" className="sr-only">
+                  <label htmlFor="email-address" className="sr-only">
                     Email
                   </label>
                   <input
@@ -97,14 +96,14 @@ function Registration() {
                     type="email"
                     value={registerValues.email}
                     onChange={handleOnChange}
-                    autocomplete="email-address"
+                    autoComplete="email-address"
                     required
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                     placeholder="Email"
                   />
                 </div>
                 <div>
-                  <label for="password" className="sr-only">
+                  <label htmlFor="password" className="sr-only">
                     Password
                   </label>
                   <input
@@ -113,7 +112,7 @@ function Registration() {
                     type="password"
                     value={registerValues.password}
                     onChange={handleOnChange}
-                    autocomplete="current-password"
+                    autoComplete="current-password"
                     required
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                     placeholder="Password"
@@ -132,9 +131,9 @@ function Registration() {
                       aria-hidden="true"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                     </svg>
                   </span>

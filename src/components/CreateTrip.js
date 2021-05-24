@@ -14,7 +14,7 @@ function CreateTrip() {
     
       const [formValues, setFormValues] = useState(initialValues);
       const [fileData, setFileData] = useState(); 
-      //const [error, setError] = useState(""); 
+      
       
       
       
@@ -55,37 +55,32 @@ function CreateTrip() {
             const data = new FormData();
             data.append("files", fileData) 
             data.append("ref", "trip")
-            data.append("refId", res.data.id) //så att vi kan spara så den vet vilden den ska tillhöra
+            data.append("refId", res.data.id) 
             data.append("field", "image") 
 
-            //window.location.reload()
+           
 
           
-          //En till axios request för bilden
+          //Axios request for the img 
           axios.post("http://localhost:1337/upload", data)
           .then((image) => console.log(image))
           .catch((error) => console.log(error))
 
+         
+
 
 
         }).then((err)=>{
-          
+
+
+         
             console.log('Well done');
             console.log(err)
+
             
 
         })
 
-        if (axios === true) { 
-          return(
-            console.log( "hej")
-            // <h1 className="bg-red-800">well done</h1>
-            
-          )
-
-        }
-        
-        
     
        
       }
@@ -96,6 +91,7 @@ function CreateTrip() {
         <div className="min-h-screen bg-gray-100 p-0 sm:p-12">
           <div className="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
             <h1 className="text-2xl font-bold mb-8">Create new trip</h1> 
+           
 
           <form onSubmit={handleOnSubmit}>
             <div className="relative z-0 w-full mb-5">

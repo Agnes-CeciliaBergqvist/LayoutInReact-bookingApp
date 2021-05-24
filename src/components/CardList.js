@@ -14,8 +14,8 @@ export default function CardList() {
         //useState for trips 
         const [trips, setTrips] = useState([]);
         const [loading, setLoading] = useState(false); 
-        const [currentPage, setCurrentPage] = useState(1); //Vi är på sida ett först 
-        const [tripsPerPage] = useState(3); // Hur många kort vill jag ha på varje sida
+        const [currentPage, setCurrentPage] = useState(1); //We are at page one fist 
+        const [tripsPerPage] = useState(3); //How many pages do we want to se on every page 
 
     
         useEffect(() => {
@@ -27,7 +27,7 @@ export default function CardList() {
 
                 setTrips(response.data)
                 setLoading(false)
-                console.log(response.data)
+                //console.log(response.data)
                 //console.log(setTrips)
 
             }
@@ -47,9 +47,9 @@ export default function CardList() {
 
         return (
 
-          // useEffect för att kunna hämta data från databasen
+          // UseEffect to be able to get the data from the database
           <div className="flex flex-row flex-wrap justify-center">
-              {/* hade trips här innan men då funkar ej pagination */}
+              
               {trip.map((trip)=> {
                  return(
                  <Card trip={trip} key={trip.id} tripDestination={trip.destination} tripDescription={trip.description} tripPrice={trip.price} tripImage={trip.image} loading={loading}/> 

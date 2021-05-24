@@ -6,8 +6,6 @@ import Modal from "react-modal";
 
 
 
-  // const bookedTrip = JSON.parse(getBooking())
-  // console.log(bookedTrip[0])
   const CartTrip = ({ trip, idx, handleRemove }) => { 
 
     return (
@@ -56,13 +54,12 @@ import Modal from "react-modal";
     //State
     const [modalOpen, setOpen] = useState(false) 
     const [modalFormValues, setModalFormValues] = useState(modalInitialValues)
-    const [username, setUsername] = useState(localStorage.getItem("username"))
     const [userId, setUserId] = useState(localStorage.getItem("userId")) 
-    const [token, setToken] = useState(localStorage.getItem("jwt"))
+    const [token] = useState(localStorage.getItem("jwt"))
 
     useEffect(() => {
       const userId = localStorage.getItem("userId")
-      console.log(userId)
+      //console.log(userId)
       //Uppdaterar state 
       setUserId(userId)
 
