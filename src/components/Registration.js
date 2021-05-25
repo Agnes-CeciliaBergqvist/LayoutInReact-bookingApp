@@ -15,7 +15,6 @@ function Registration() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [error, setError] = useState();
 
-
   function handleOnChange(e) {
     setRegisterValues({
       ...registerValues,
@@ -23,8 +22,7 @@ function Registration() {
     });
   }
 
-
-  //Sending the data to Strapi 
+  //Sending the data to Strapi
   function handleOnSubmit(e) {
     e.preventDefault();
     axios
@@ -45,7 +43,6 @@ function Registration() {
     <>
       {loggedIn ? (
         <div>
-          
           <Login />
         </div>
       ) : (
@@ -146,7 +143,6 @@ function Registration() {
                   Login here
                 </Link>
               </div>
-              
             </form>
           </div>
         </div>

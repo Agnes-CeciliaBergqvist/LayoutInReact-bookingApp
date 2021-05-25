@@ -1,72 +1,57 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import login from "./images/login.png";
-import axios from "axios"; 
-
-
-
+import axios from "axios";
 
 function ForgotPassword() {
-
-  function resetRequest() { 
+  function resetRequest() {
     // Request API.
-axios
-.post('http://localhost:1337/auth/reset-password', {
-  code: 'privateCode',
-  password: 'myNewPassword',
-  passwordConfirmation: 'myNewPassword'
-})
-.then(response => {
-  // Handle success.
-  console.log('Your user\'s password has been changed.');
-})
-.catch(error => {
-  // Handle error.
-  console.log('An error occurred:', error.response);
-});
-
-
-
+    axios
+      .post("http://localhost:1337/auth/reset-password", {
+        code: "privateCode",
+        password: "myNewPassword",
+        passwordConfirmation: "myNewPassword",
+      })
+      .then((response) => {
+        // Handle success.
+        console.log("Your user's password has been changed.");
+      })
+      .catch((error) => {
+        // Handle error.
+        console.log("An error occurred:", error.response);
+      });
   }
 
+  const newInitialValue = {
+    email: "",
+  };
 
+  const [newPassword, setNewPassword] = useState(newInitialValue);
 
-    const newInitialValue = { 
-        email: ""
-    }
+  function handleOnchange(e) {
+    setNewPassword({
+      ...newPassword,
+      [e.target.name]: e.target.value,
+    });
+  }
 
-
-
-    const[newPassword, setNewPassword] = useState(newInitialValue); 
-
-    
-
-    function handleOnchange(e) {
-        
-        setNewPassword({
-            ...newPassword, 
-            [e.target.name]: e.target.value, 
-        }) ; 
- }
-
-    function handleOnSubmit(e) { 
-        e.preventDefault(); 
-        axios.post('http://localhost:1337/auth/forgot-password', {
+  function handleOnSubmit(e) {
+    e.preventDefault();
+    axios
+      .post("http://localhost:1337/auth/forgot-password", {
         email: newPassword.email,
-        url:'http:/localhost:1337/admin/plugins/users-permissions/auth/reset-password',
-  })
-  .then(response => {
-    console.log('You have received an email');
-  })
-  .catch(error => {
-    console.log('An error occurred:', error.response);
-  });
+        url: "http:/localhost:1337/admin/plugins/users-permissions/auth/reset-password",
+      })
+      .then((response) => {
+        console.log("You have received an email");
+      })
+      .catch((error) => {
+        console.log("An error occurred:", error.response);
+      });
+  }
 
-}
-
-
-    return (
-        <div>
-            <div className="min-h-screen flex items-center justify-center bg-black-50 py-12 px-4 sm:px-6 lg:px-8">
+  return (
+    <div>
+      <div className="min-h-screen flex items-center justify-center bg-black-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
             <img
@@ -78,7 +63,7 @@ axios
               Reset password
             </h2>
           </div>
-          
+
           <form
             className="mt-8 space-y-6"
             onSubmit={handleOnSubmit}
@@ -100,16 +85,13 @@ axios
                   placeholder="email"
                   onChange={handleOnchange}
                   value={newPassword.email}
-                  
                 />
               </div>
-
-              </div>
-
-        
+            </div>
 
             <div>
-              <button onClick={resetRequest}
+              <button
+                onClick={resetRequest}
                 type="submit"
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
@@ -131,13 +113,11 @@ axios
                 Send
               </button>
             </div>
-           
           </form>
         </div>
       </div>
-            
-        </div>
-    )
+    </div>
+  );
 }
 
-export default ForgotPassword
+export default ForgotPassword;

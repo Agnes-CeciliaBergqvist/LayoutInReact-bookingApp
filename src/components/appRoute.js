@@ -2,7 +2,7 @@ import React from "react";
 import BookTrip from "./BookTrip";
 import CardList from "./CardList"; 
 import Menu from "./Menu"; 
-import './style.css'; 
+import "./style.css"; 
 import MyTrips from "./MyTrips";
 import Registration from "./Registration"; 
 import Login from "./Login"; 
