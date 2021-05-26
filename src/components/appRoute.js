@@ -24,14 +24,14 @@ function AppRoute() { 
             <Router>
 
                 <Menu/>
-                    <Route path="/" exact component={CardList} />
-                    <Route path="/registration" component={Registration} />
-                    <Route path="/login" component={Login} />                
-                    <Route path="/homepage" component={HomePage} />
-                    <Route path="/notloggedin" component={NotLoggedIn} />
-                    <Route path="/createtrip" component={CreateTrip} />
-                    <Route path="/mytrips" component={MyTrips} />
-                    <Route path="/booktrip" component={BookTrip} />
+                    <Route exact path="/" component={HomePage} />
+                    <Route exact path="/registration" component={Registration} />
+                    <Route exact path="/login" component={Login} />                
+                    <Route exact path="/cardlist" component={CardList} />
+                    <Route exact path="/notloggedin" component={NotLoggedIn} />
+                    <Route exact path="/createtrip" component={CreateTrip} />
+                    <Route exact path="/mytrips" component={MyTrips} />
+                    <Route exact path="/booktrip" component={BookTrip} />
             </Router>
         </>
     )
