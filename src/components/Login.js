@@ -29,7 +29,7 @@ function Login() {
     e.preventDefault();
     // axios request till login sidan
     axios
-      .post("http://localhost:1337/auth/local", {
+      .post("https://speedo-booking.herokuapp.com/auth/local", {
         identifier: formValues.username,
         password: formValues.password,
       })

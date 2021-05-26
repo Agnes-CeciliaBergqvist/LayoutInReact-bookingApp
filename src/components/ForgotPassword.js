@@ -6,7 +6,7 @@ function ForgotPassword() {
   function resetRequest() {
     // Request API.
     axios
-      .post("http://localhost:1337/auth/reset-password", {
+      .post("https://speedo-booking.herokuapp.com/auth/reset-password", {
         code: "privateCode",
         password: "myNewPassword",
         passwordConfirmation: "myNewPassword",
@@ -37,7 +37,7 @@ function ForgotPassword() {
   function handleOnSubmit(e) {
     e.preventDefault();
     axios
-      .post("http://localhost:1337/auth/forgot-password", {
+      .post("https://speedo-booking.herokuapp.com/auth/forgot-password", {
         email: newPassword.email,
         url: "http:/localhost:1337/admin/plugins/users-permissions/auth/reset-password",
       })

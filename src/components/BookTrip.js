@@ -14,7 +14,7 @@ const CartTrip = ({ trip, idx, handleRemove }) => {
           </div>
           <img
             className=" w-72 h-52"
-            src={"http://localhost:1337" + trip.image.url}
+            src={"https://speedo-booking.herokuapp.com" + trip.image.url}
             alt="images from the database strapi"
           />
           <div className="text-gray-800 leading-relaxed mb-6">
@@ -85,7 +85,7 @@ export default function Store(tripId) {
     //One more request to user_bookings
     try {
       const response = await axios.post(
-        "http://localhost:1337/user-bookings",
+        "https://speedo-booking.herokuapp.com/user-bookings",
         {
           name: modalFormValues.name,
           mobile: Number(modalFormValues.mobile),

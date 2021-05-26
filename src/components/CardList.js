@@ -13,7 +13,7 @@ export default function CardList() {
   useEffect(() => {
     const fetchTrips = async () => {
       setLoading(true);
-      const response = await axios.get("http://localhost:1337/trips");
+      const response = await axios.get("https://speedo-booking.herokuapp.com/trips");
       //console.log(response)
 
       setTrips(response.data);

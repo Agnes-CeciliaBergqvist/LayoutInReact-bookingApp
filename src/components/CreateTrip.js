@@ -33,7 +33,7 @@ function CreateTrip() {
     }
 
     axios
-      .post("http://localhost:1337/trips", {
+      .post("https://speedo-booking.herokuapp.com/trips", {
         destination: formValues.destination,
         description: formValues.description,
         price: formValues.price,
@@ -49,7 +49,7 @@ function CreateTrip() {
 
         //Axios request for the img
         axios
-          .post("http://localhost:1337/upload", data)
+          .post("https://speedo-booking.herokuapp.com/upload", data)
           .then((image) => console.log(image))
           .catch((error) => console.log(error));
       })

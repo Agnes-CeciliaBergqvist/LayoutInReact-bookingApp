@@ -25,7 +25,7 @@ function Card({
       </div>
       <img
         className=" w-72 h-52"
-        src={"http://localhost:1337" + tripImage.url}
+        src={"https://speedo-booking.herokuapp.com" + tripImage.url}
         alt="images from the database strapi"
       />
       <div className="text-gray-800 leading-relaxed mb-6">
