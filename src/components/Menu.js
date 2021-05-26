@@ -196,7 +196,7 @@ function Menu() {
                 <li className="nav-item">
                   <Link
                     onClick={() => setNavbarOpen(!navbarOpen)}
-                    to="/"
+                    to="/cardlist"
                     className="hover:bg-gray-700 hover:text-white px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug"
                     aria-current="page"
                   >
