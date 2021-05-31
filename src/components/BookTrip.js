@@ -183,6 +183,11 @@ export default function Store(tripId) {
           {" "}
           buy trip
         </button>
+        <button role="link"
+              onClick={handleClick}>
+                checkout
+          
+        </button>
         
 
         <Modal
@@ -251,8 +256,7 @@ export default function Store(tripId) {
             <button
               className="btn text-white font-bold bg-gradient-to-r from-pink-600 to-purple-500 rounded-full h-24 w-24 flex items-center justify-center p-5 "
               type="submit"
-              role="link"
-              onClick={handleClick}
+             
             >
               Confirm/Checkout
             </button>
