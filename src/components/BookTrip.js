@@ -2,8 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useCart, useDispatchCart } from "./BookReducer";
 import Modal from "react-modal";
+import { loadStripe } from "@stripe/stripe-js";
+import ReactDOM from ".react-dom"
+
+
+const stripePromise = loadStripe('pk_test_51Ix6LSGaMeFrhWKCWoo8WGQUmzbv7fFkSjdEP5QbQNnivUNs9DAwYDHndO8ZXpaeBVi51putaDFqn58cftUBcs9c00CreRbRqY');
+
 
 const CartTrip = ({ trip, idx, handleRemove }) => {
+
+
   return (
     <>
       <div className="bg-gray-200 rounded-xl p-6 m-4">
@@ -33,6 +41,39 @@ const CartTrip = ({ trip, idx, handleRemove }) => {
 };
 
 export default function Store(tripId) {
+
+ //code for handeling the onclick function for checkout 
+  const handleClick = async (event) => {
+    // Get Stripe.js instance
+    const stripe = await stripePromise;
+
+    // Call your backend to create the Checkout Session
+    const response = await axios.post("http://localhost:4242/create-checkout-session")
+    //fetch('/create-checkout-session', { method: 'POST' });
+
+    console.log(response)
+    const session = response.data.id
+
+    console.log(session)
+
+    // When the customer clicks on the button, redirect them to Checkout.
+    const result = await stripe.redirectToCheckout({
+      sessionId: session,
+    });
+
+    if (result.error) {
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `result.error.message`.
+    }
+  };
+
+
+
+
+
+
+
   const customStyles = {
     content: {
       background: "#391f56",
@@ -142,6 +183,7 @@ export default function Store(tripId) {
           {" "}
           buy trip
         </button>
+        
 
         <Modal
           isOpen={modalOpen}
@@ -209,8 +251,10 @@ export default function Store(tripId) {
             <button
               className="btn text-white font-bold bg-gradient-to-r from-pink-600 to-purple-500 rounded-full h-24 w-24 flex items-center justify-center p-5 "
               type="submit"
+              role="link"
+              onClick={handleClick}
             >
-              Confirm
+              Confirm/Checkout
             </button>
           </form>
         </Modal>

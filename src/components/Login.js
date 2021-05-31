@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import login from "./images/login.png";
 import { Link, useHistory } from "react-router-dom";
+import ForgotPassword from "./ForgotPassword";
 
 function Login() {
   const initialValues = {
@@ -136,7 +137,7 @@ function Login() {
                     Remember me
                   </label>
                 </div>
-                <Link to="./ForgotPassword">
+                <Link to="./forgotpassword">
                   <div className="text-sm">
                     <p className="font-medium text-indigo-600 hover:text-indigo-500">
                       Forgot your password?

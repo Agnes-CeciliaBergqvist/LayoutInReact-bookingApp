@@ -229,7 +229,7 @@ function Menu() {
         <nav className="bg-white h-20 z-auto relative flex flex-wrap items-center justify-between px-2 py-3 bg-amber-500 mb-3">
           <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
             <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-              <Link to="/homepage">
+              <Link to="/">
                 <svg
                   className="mx-auto h-10 w-auto absolute flex left-8"
                   xmlns="http://www.w3.org/2000/svg"

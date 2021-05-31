@@ -9,6 +9,7 @@ import Login from "./Login";
 import CreateTrip from "./CreateTrip"; 
 import HomePage from "./HomePage"; 
 import NotLoggedIn from "./NotLoggedIn"; 
+import ForgotPassword from "./ForgotPassword"
 
 
 
@@ -32,6 +33,8 @@ function AppRoute() { 
                     <Route exact path="/createtrip" component={CreateTrip} />
                     <Route exact path="/mytrips" component={MyTrips} />
                     <Route exact path="/booktrip" component={BookTrip} />
+                    <Route exact path="/forgotpassword" component={ForgotPassword} />
+                    
             </Router>
         </>
     )
