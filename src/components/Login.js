@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import login from "./images/login.png";
 import { Link, useHistory } from "react-router-dom";
-import ForgotPassword from "./ForgotPassword";
+//import ForgotPassword from "./ForgotPassword";
 
 function Login() {
   const initialValues = {

@@ -48,7 +48,7 @@ export default function Store(tripId) {
     const stripe = await stripePromise;
 
     // Call your backend to create the Checkout Session
-    const response = await axios.post("https://speedo-booking.herokuapp.com/4242/create-checkout-session")
+    const response = await axios.post("https://heuristic-archimedes-2e4bb9.netlify.app/4242/create-checkout-session")
     //fetch('/create-checkout-session', { method: 'POST' });
 
     console.log(response)
@@ -258,7 +258,7 @@ export default function Store(tripId) {
               type="submit"
              
             >
-              Confirm/Checkout
+              Confirm
             </button>
           </form>
         </Modal>
