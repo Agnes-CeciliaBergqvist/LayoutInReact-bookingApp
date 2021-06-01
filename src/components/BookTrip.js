@@ -3,7 +3,7 @@ import axios from "axios";
 import { useCart, useDispatchCart } from "./BookReducer";
 import Modal from "react-modal";
 import { loadStripe } from "@stripe/stripe-js";
-import ReactDOM from ".react-dom"
+import ReactDOM from "react-dom"
 
 
 const stripePromise = loadStripe('pk_test_51Ix6LSGaMeFrhWKCWoo8WGQUmzbv7fFkSjdEP5QbQNnivUNs9DAwYDHndO8ZXpaeBVi51putaDFqn58cftUBcs9c00CreRbRqY');
