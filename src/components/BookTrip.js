@@ -2,11 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useCart, useDispatchCart } from "./BookReducer";
 import Modal from "react-modal";
-import { loadStripe } from "@stripe/stripe-js";
-import ReactDOM from "react-dom"
-
-
-const stripePromise = loadStripe('pk_test_51Ix6LSGaMeFrhWKCWoo8WGQUmzbv7fFkSjdEP5QbQNnivUNs9DAwYDHndO8ZXpaeBVi51putaDFqn58cftUBcs9c00CreRbRqY');
 
 
 const CartTrip = ({ trip, idx, handleRemove }) => {
@@ -41,37 +36,6 @@ const CartTrip = ({ trip, idx, handleRemove }) => {
 };
 
 export default function Store(tripId) {
-
- //code for handeling the onclick function for checkout 
-  const handleClick = async (event) => {
-    // Get Stripe.js instance
-    const stripe = await stripePromise;
-
-    // Call your backend to create the Checkout Session
-    const response = await axios.post("https://heuristic-archimedes-2e4bb9.netlify.app/4242/create-checkout-session")
-    //fetch('/create-checkout-session', { method: 'POST' });
-
-    console.log(response)
-    const session = response.data.id
-
-    console.log(session)
-
-    // When the customer clicks on the button, redirect them to Checkout.
-    const result = await stripe.redirectToCheckout({
-      sessionId: session,
-    });
-
-    if (result.error) {
-      // If `redirectToCheckout` fails due to a browser or network
-      // error, display the localized error message to your customer
-      // using `result.error.message`.
-    }
-  };
-
-
-
-
-
 
 
   const customStyles = {
@@ -183,13 +147,8 @@ export default function Store(tripId) {
           {" "}
           buy trip
         </button>
-        <button role="link"
-              onClick={handleClick}>
-                checkout
-          
-        </button>
+       
         
-
         <Modal
           isOpen={modalOpen}
           onRequestClose={closeModal}

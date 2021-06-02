@@ -1,8 +1,52 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Booking from "./Booking";
+import { loadStripe } from "@stripe/stripe-js";
+import ReactDOM from "react-dom"
+
+
+const stripePromise = loadStripe('pk_test_51Ix6LSGaMeFrhWKCWoo8WGQUmzbv7fFkSjdEP5QbQNnivUNs9DAwYDHndO8ZXpaeBVi51putaDFqn58cftUBcs9c00CreRbRqY');
+
 
 function MyTrips() {
+
+  //code for handeling the onclick function for checkout 
+  const handleClick = async (event) => {
+    // Get Stripe.js instance
+    const stripe = await stripePromise;
+
+    // Call your backend to create the Checkout Session
+    const response = await axios.post("https://heuristic-archimedes-2e4bb9.netlify.app/4242/create-checkout-session")
+    //fetch('/create-checkout-session', { method: 'POST' });
+
+    console.log(response)
+    const session = response.data.id
+
+    console.log(session)
+
+    // When the customer clicks on the button, redirect them to Checkout.
+    const result = await stripe.redirectToCheckout({
+      sessionId: session,
+    });
+
+    if (result.error) {
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `result.error.message`.
+    }
+  };
+
+
+
+
+
+
+
+
+
+
+
+
   const [tripData, setTripData] = useState([]);
   const [userId] = useState(localStorage.getItem("userId"));
   const [token] = useState(localStorage.getItem("jwt"));
@@ -42,6 +86,7 @@ function MyTrips() {
       <div className="flex flex-row flex-wrap justify-center ">
         {tripData.map((booking) => {
           return (
+            <>
             <Booking
               key={booking.id}
               name={booking.name}
@@ -50,7 +95,13 @@ function MyTrips() {
               mobile={booking.mobile}
               destination={booking.trip}
             />
+            <button role="link"
+            onClick={handleClick}>
+              checkout
+            </button>
+          </>
           );
+
         })}
       </div>
     </div>
