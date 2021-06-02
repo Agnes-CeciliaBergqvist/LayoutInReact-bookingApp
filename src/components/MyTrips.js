@@ -94,9 +94,10 @@ function MyTrips() {
               toDate={booking.toDate}
               mobile={booking.mobile}
               destination={booking.trip}
+              price={booking.price}
             />
             <button role="link"
-            onClick={handleClick}>
+            onClick={handleClick} className="text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
               checkout
             </button>
           </>
