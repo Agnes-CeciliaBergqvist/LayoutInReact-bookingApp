@@ -103,7 +103,7 @@ function MyTrips() {
               price={booking.price}
             />
             <button role="link"
-            onClick={handleClick} className="max-h-12 text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
+            onClick={handleClick} className="mt-28 max-h-12 text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
               checkout
             </button>
           </>
