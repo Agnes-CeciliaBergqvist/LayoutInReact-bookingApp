@@ -46,11 +46,11 @@ function Booking({ name, fromDate, toDate, mobile , price, idx, handleRemove}) {
         <p>Home: {toDate}</p>
         <p>Mobile: {mobile}</p>
         <p>Total price: {price}</p>
-        <button onClick={() => handleRemove(idx)} className="m-h-12 text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
+        <button onClick={() => handleRemove(idx)} className=" text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
           Cancel
         </button>
         <button role="link"
-            onClick={handleClick} className="mt-28 max-h-12 text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
+            onClick={handleClick} className="text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
               checkout
             </button>
       </div>
