@@ -10,11 +10,12 @@ function Booking({ name, fromDate, toDate, mobile , price, idx, handleRemove}) {
 
    //code for handeling the onclick function for checkout 
    const handleClick = async (event) => {
+     event.preventDefault()
     // Get Stripe.js instance
     const stripe = await stripePromise;
 
     // Call your backend to create the Checkout Session
-    const response = await axios.post("https://heuristic-archimedes-2e4bb9.netlify.app/create-checkout-session")
+    const response = await axios.post("https://heuristic-archimedes-2e4bb9.netlify.app:4242/create-checkout-session")
     //fetch('/create-checkout-session', { method: 'POST' });
 
     console.log(response)
