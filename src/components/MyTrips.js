@@ -1,42 +1,15 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Booking from "./Booking";
-import { loadStripe } from "@stripe/stripe-js";
 import { useDispatchCart } from "./BookReducer";
 //import ReactDOM from "react-dom"
 
 
-const stripePromise = loadStripe('pk_test_51Ix6LSGaMeFrhWKCWoo8WGQUmzbv7fFkSjdEP5QbQNnivUNs9DAwYDHndO8ZXpaeBVi51putaDFqn58cftUBcs9c00CreRbRqY');
 
 
 function MyTrips() {
 
-  //code for handeling the onclick function for checkout 
-  const handleClick = async (event) => {
-    // Get Stripe.js instance
-    const stripe = await stripePromise;
-
-    // Call your backend to create the Checkout Session
-    const response = await axios.post("https://heuristic-archimedes-2e4bb9.netlify.app/create-checkout-session")
-    //fetch('/create-checkout-session', { method: 'POST' });
-
-    console.log(response)
-    const session = response.data.id
-
-    console.log(session)
-
-    // When the customer clicks on the button, redirect them to Checkout.
-    const result = await stripe.redirectToCheckout({
-      sessionId: session,
-    });
-
-    if (result.error) {
-      // If `redirectToCheckout` fails due to a browser or network
-      // error, display the localized error message to your customer
-      // using `result.error.message`.
-    }
-  };
-
+ 
 
 
   const [tripData, setTripData] = useState([]);
@@ -102,10 +75,7 @@ function MyTrips() {
               destination={booking.trip}
               price={booking.price}
             />
-            <button role="link"
-            onClick={handleClick} className="mt-28 max-h-12 text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
-              checkout
-            </button>
+           
           </>
           );
 
