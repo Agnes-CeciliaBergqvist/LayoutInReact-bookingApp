@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Booking from "./Booking";
 import { loadStripe } from "@stripe/stripe-js";
+import { useDispatchCart } from "./BookReducer";
 //import ReactDOM from "react-dom"
 
 
@@ -38,15 +39,6 @@ function MyTrips() {
 
 
 
-
-
-
-
-
-
-
-
-
   const [tripData, setTripData] = useState([]);
   const [userId] = useState(localStorage.getItem("userId"));
   const [token] = useState(localStorage.getItem("jwt"));
@@ -69,6 +61,15 @@ function MyTrips() {
     fetchData();
   }, []);
 
+  const dispatch = useDispatchCart();
+
+  const handleRemove = (idx) => {
+    dispatch({ type: "REMOVE", idx });
+
+
+  };
+  
+
   if (tripData.length === 0) {
     return (
       <div className="h-screen">
@@ -78,16 +79,21 @@ function MyTrips() {
       </div>
     );
   }
-
+  
+  
+  
   return (
+    
     <div className="h-screen">
       <h1 className="text-4xl font-bold">Bookings</h1>
       <p className="text-2xl">Below you see your booked trips</p>
       <div className="flex flex-row flex-wrap justify-center ">
-        {tripData.map((booking) => {
+        {tripData.map((booking, idx) => {
           return (
             <>
             <Booking
+              handleRemove={handleRemove}
+              index={idx}
               key={booking.id}
               name={booking.name}
               fromDate={booking.fromDate}
