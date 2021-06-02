@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Booking from "./Booking";
 import { loadStripe } from "@stripe/stripe-js";
-import ReactDOM from "react-dom"
+//import ReactDOM from "react-dom"
 
 
 const stripePromise = loadStripe('pk_test_51Ix6LSGaMeFrhWKCWoo8WGQUmzbv7fFkSjdEP5QbQNnivUNs9DAwYDHndO8ZXpaeBVi51putaDFqn58cftUBcs9c00CreRbRqY');
@@ -16,7 +16,7 @@ function MyTrips() {
     const stripe = await stripePromise;
 
     // Call your backend to create the Checkout Session
-    const response = await axios.post("https://heuristic-archimedes-2e4bb9.netlify.app/4242/create-checkout-session")
+    const response = await axios.post("https://heuristic-archimedes-2e4bb9.netlify.app/create-checkout-session")
     //fetch('/create-checkout-session', { method: 'POST' });
 
     console.log(response)
