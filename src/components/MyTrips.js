@@ -65,7 +65,7 @@ function MyTrips() {
           return (
             <>
             <Booking
-              handleRemove={handleRemove}
+              handleRemove={handleRemove.idx}
               index={idx}
               key={booking.id}
               name={booking.name}
