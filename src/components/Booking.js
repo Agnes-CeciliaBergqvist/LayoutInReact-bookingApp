@@ -15,7 +15,7 @@ function Booking({ name, fromDate, toDate, mobile , price, idx, handleRemove}) {
     const stripe = await stripePromise;
 
     // Call your backend to create the Checkout Session
-    const response = await axios.post("https://speedo-stripe.herokuapp.com/create-checkout-session", {name:name, price:price})
+    const response = await axios.post("https://speedo-stripe.herokuapp.com/create-checkout-session", {name:name})
    
 
     console.log(response)
