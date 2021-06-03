@@ -8,15 +8,15 @@ const stripePromise = loadStripe('pk_test_51Ix6LSGaMeFrhWKCWoo8WGQUmzbv7fFkSjdEP
 
 function Booking({ name, fromDate, toDate, mobile , price, idx, handleRemove}) {
 
-   //code for handeling the onclick function for checkout 
+   //Code for handeling the onclick function for checkout 
    const handleClick = async (event) => {
      event.preventDefault()
     // Get Stripe.js instance
     const stripe = await stripePromise;
 
     // Call your backend to create the Checkout Session
-    const response = await axios.post("https://speedo-stripe.herokuapp.com/create-checkout-session")
-    //fetch('/create-checkout-session', { method: 'POST' });
+    const response = await axios.post("https://speedo-stripe.herokuapp.com/create-checkout-session", {name:name, price:price})
+   
 
     console.log(response)
     const session = response.data.id
