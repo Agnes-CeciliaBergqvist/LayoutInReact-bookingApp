@@ -1,13 +1,13 @@
 import React from "react";
 import axios from"axios";
 import { loadStripe } from "@stripe/stripe-js";
-import { useDispatchCart } from "./BookReducer";
+
 
 const stripePromise = loadStripe('pk_test_51Ix6LSGaMeFrhWKCWoo8WGQUmzbv7fFkSjdEP5QbQNnivUNs9DAwYDHndO8ZXpaeBVi51putaDFqn58cftUBcs9c00CreRbRqY');
 
 
 
-function Booking({ name, fromDate, toDate, mobile , price, idx}) {
+function Booking({ name, fromDate, toDate, mobile , price }) {
 
    //Code for handeling the onclick function for checkout 
    const handleClick = async (event) => {
@@ -35,15 +35,8 @@ function Booking({ name, fromDate, toDate, mobile , price, idx}) {
       // using `result.error.message`.
     }
   };
-  const dispatch = useDispatchCart();
-
-  const handleRemove = (idx) => {
-    dispatch({ type: "REMOVE", idx });
-
-
-  };
   
-
+ 
 
   return (
     <div className="">
@@ -54,7 +47,7 @@ function Booking({ name, fromDate, toDate, mobile , price, idx}) {
         <p>Home: {toDate}</p>
         <p>Mobile: {mobile}</p>
         <p>Total price: {price}</p>
-        <button onClick={() => handleRemove(idx)} className="m-1.5 text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
+        <button className="m-1.5 text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
           Cancel
         </button>
         <button role="link"
@@ -64,6 +57,8 @@ function Booking({ name, fromDate, toDate, mobile , price, idx}) {
       </div>
     </div>
   );
+  
 }
+
 
 export default Booking;

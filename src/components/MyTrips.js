@@ -1,15 +1,13 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Booking from "./Booking";
-import { useDispatchCart } from "./BookReducer";
-//import ReactDOM from "react-dom"
+
 
 
 
 
 function MyTrips() {
 
- 
 
 
   const [tripData, setTripData] = useState([]);
@@ -34,14 +32,8 @@ function MyTrips() {
     fetchData();
   }, []);
 
-  const dispatch = useDispatchCart();
-
-  const handleRemove = (idx) => {
-    dispatch({ type: "REMOVE", idx });
-
-
-  };
   
+
 
   if (tripData.length === 0) {
     return (
@@ -55,18 +47,18 @@ function MyTrips() {
   
   
   
+  
   return (
     
     <div className="h-screen">
       <h1 className="text-4xl font-bold">Bookings</h1>
       <p className="text-2xl">Below you see your booked trips</p>
       <div className="flex flex-row flex-wrap justify-center ">
-        {tripData.map((booking, idx) => {
+        {tripData.map((booking) => {
           return (
-            <>
+           
             <Booking
-              handleRemove={handleRemove.idx}
-              index={idx}
+              
               key={booking.id}
               name={booking.name}
               fromDate={booking.fromDate}
@@ -76,7 +68,7 @@ function MyTrips() {
               price={booking.price}
             />
            
-          </>
+          
           );
 
         })}
