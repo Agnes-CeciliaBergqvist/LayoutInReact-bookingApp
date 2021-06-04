@@ -7,7 +7,7 @@ const stripePromise = loadStripe('pk_test_51Ix6LSGaMeFrhWKCWoo8WGQUmzbv7fFkSjdEP
 
 
 
-function Booking({ name, fromDate, toDate, mobile , price }) {
+function Booking({ id, name, fromDate, toDate, mobile , price }) {
 
    //Code for handeling the onclick function for checkout 
    const handleClick = async (event) => {
@@ -35,6 +35,15 @@ function Booking({ name, fromDate, toDate, mobile , price }) {
       // using `result.error.message`.
     }
   };
+
+  const handleRemove = async (event) => {
+  
+    const response = await axios.delete(`https://speedo-stripe.herokuapp.com/user-bookings/${event.target.name}`)
+    console.log(response)
+    console.log(event.target.name)
+    Number(event.target.name)
+
+  }
   
  
 
@@ -47,7 +56,7 @@ function Booking({ name, fromDate, toDate, mobile , price }) {
         <p>Home: {toDate}</p>
         <p>Mobile: {mobile}</p>
         <p>Total price: {price}</p>
-        <button className="m-1.5 text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
+        <button onClick={handleRemove} name={id} className="m-1.5 text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
           Cancel
         </button>
         <button role="link"

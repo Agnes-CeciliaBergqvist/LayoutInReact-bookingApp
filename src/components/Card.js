@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatchCart } from "./BookReducer";
+import {Link} from "react-router-dom";
 
 function Card({
   trip,
@@ -10,6 +11,7 @@ function Card({
   tripImage,
 }) {
   const dispatch = useDispatchCart();
+  const admin = localStorage.getItem("role");
 
   const BookTrip = (item) => {
     console.log(item);
@@ -18,7 +20,43 @@ function Card({
   };
 
   return (
-    <div className="bg-gray-200 rounded-xl p-6 m-4 h-2/4">
+    <>
+    {admin === "admin" ? (
+      <div className="bg-gray-200 rounded-xl p-6 m-4 h-2/4">
+      <h2 className="text-2xl font-bold mb-2">{tripDestination}</h2>
+      <div className="text-gray-800 leading-relaxed mb-6">
+        {tripDescription}
+      </div>
+      <img
+        className=" w-72 h-52"
+        src={"https://speedo-booking.herokuapp.com" + tripImage.url}
+        alt="images from the database strapi"
+      />
+      <div className="text-gray-800 leading-relaxed mb-6">
+        Total price from: {tripPrice}:-
+      </div>
+      <button
+        onClick={() => BookTrip(trip)}
+        className="text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300"
+      >
+        Book
+      </button>
+      <button className=" m-1 text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300"
+      >
+        Delete
+        </button>
+        <Link to="./updatecard">
+        <button className=" m-1 text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300"
+      >
+        Update
+        </button>
+        </Link>
+
+    </div>
+
+    ) : (
+
+      <div className="bg-gray-200 rounded-xl p-6 m-4 h-2/4">
       <h2 className="text-2xl font-bold mb-2">{tripDestination}</h2>
       <div className="text-gray-800 leading-relaxed mb-6">
         {tripDescription}
@@ -38,6 +76,10 @@ function Card({
         Book
       </button>
     </div>
+
+    )}
+    
+    </>
   );
 }
 
