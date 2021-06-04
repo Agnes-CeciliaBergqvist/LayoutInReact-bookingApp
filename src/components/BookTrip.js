@@ -106,7 +106,14 @@ export default function Store(tripId) {
         }
       );
       console.log("added to userCart", response);
-      //console.log("added to userCart",tripId)
+      //kan jag tömma min cart om response är true på något sätt? 
+      // if (response(true)) { 
+      //   return( 
+      //     response(false)
+      //   )
+      // }
+      console.log("added to userCart",tripId)
+
     } catch (error) {
       console.log(error.data);
     }
@@ -129,7 +136,9 @@ export default function Store(tripId) {
       </main>
     );
   }
-  return (
+
+ 
+  return  (
     <div className="h-screen">
       <div className="flex flex-row flex-wrap justify-center pt-14">
         {items.map((item, idx) => (
