@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from "axios"; 
 
 function UpdateCard() {
@@ -7,13 +7,26 @@ function UpdateCard() {
         const initialValues = {
           destination: "",
           description: "",
-          price: 0,
+          price: "",
         };
       
         const [formValues, setFormValues] = useState(initialValues);
-        const [fileData, setFileData] = useState();
+        const [fileData, setFileData] = useState(null);
         const [success, setSuccess] = useState(false);
-        const [noFile, setNoFile] = useState(false);
+        ////const [noFile, setNoFile] = useState(false);
+
+        const idToUpdate = Number(localStorage.getItem("updateTripId"))
+
+        useEffect(() => {
+          axios.get(`https://speedo-booking.herokuapp.com/trips/${idToUpdate}`).then(res => {
+            console.log("response", res)
+            setFormValues({
+              destination: res.data.destination,
+            description: res.data.description,
+            price: res.data.price,
+            })
+          })
+        }, [])
       
         function handleOnChange(e) {
           setFormValues({
@@ -24,41 +37,34 @@ function UpdateCard() {
         function handleOnChangeImg(e) {
           setFileData(e.target.files[0]);
         }
-      
+        
         function handleOnSubmit(e) {
           e.preventDefault();
-      
-          if (!fileData) {
-            setNoFile(true);
-            return "test";
-          }
+
       
           axios
-            .post("https://speedo-booking.herokuapp.com/trips", {
-              destination: formValues.destination,
-              description: formValues.description,
-              price: formValues.price,
-            })
+            .put(`https://speedo-booking.herokuapp.com/trips/${idToUpdate}`, formValues
+            )
             .then((res) => {
-              console.log(res.data);
-      
+              if(fileData){
+    
               const data = new FormData();
               data.append("files", fileData);
               data.append("ref", "trip");
-              data.append("refId", res.data.id);
+              data.append("refId", idToUpdate);
               data.append("field", "image");
       
               //Axios request for the img
               axios
                 .post("https://speedo-booking.herokuapp.com/upload", data)
                 .then((image) => console.log(image))
-                .catch((error) => console.log(error));
+                .catch((error) => console.log(error));}
             })
             .then(() => {
               setFormValues(initialValues);
               setFileData(null);
               setSuccess(true);
-              setNoFile(false);
+              
             });
         }
         
@@ -76,7 +82,7 @@ function UpdateCard() {
                 onChange={handleOnChange}
                 className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
                 placeholder="New destination"
-                required
+                
               />
             </div>
 
@@ -88,7 +94,7 @@ function UpdateCard() {
                 onChange={handleOnChange}
                 className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
                 placeholder="New description"
-                required
+                
               />
             </div>
 
@@ -100,7 +106,7 @@ function UpdateCard() {
                 onChange={handleOnChange}
                 className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
                 placeholder="New price"
-                required
+                
               />
             </div>
 
@@ -123,7 +129,7 @@ function UpdateCard() {
                   onChange={handleOnChangeImg}
                   className="hidden"
                 />
-                {noFile && <p className="text-red-600">Must have an image</p>}
+                
               </label>
             </div>
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatchCart } from "./BookReducer";
 import {Link} from "react-router-dom";
+import axios from "axios"
 
 function Card({
   trip,
@@ -19,7 +20,15 @@ function Card({
     localStorage.setItem("productsInCart", `${tripId}`);
   };
 
-  return (
+  const handleDelete = async () => {
+    await axios.delete(`https://speedo-booking.herokuapp.com/trips/${tripId}`)
+  }
+
+  const handleUpdate = (event) => {
+    localStorage.setItem("updateTripId", event.target.name)
+  }
+
+  return tripImage && (
     <>
     {admin === "admin" ? (
       <div className="bg-gray-200 rounded-xl p-6 m-4 h-2/4">
@@ -41,12 +50,12 @@ function Card({
       >
         Book
       </button>
-      <button className=" m-1 text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300"
+      <button onClick={handleDelete} className=" m-1 text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300"
       >
         Delete
         </button>
         <Link to="./updatecard">
-        <button className=" m-1 text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300"
+        <button name={tripId} onClick={handleUpdate} className=" m-1 text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300"
       >
         Update
         </button>

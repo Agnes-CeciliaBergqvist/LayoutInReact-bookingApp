@@ -37,11 +37,10 @@ function Booking({ id, name, fromDate, toDate, mobile , price }) {
   };
 
   const handleRemove = async (event) => {
-  
-    const response = await axios.delete(`https://speedo-stripe.herokuapp.com/user-bookings/${event.target.name}`)
-    console.log(response)
-    console.log(event.target.name)
-    Number(event.target.name)
+    const id = Number(event.target.name)
+
+    await axios.delete(`https://speedo-booking.herokuapp.com/user-bookings/${id}`)
+
 
   }
   

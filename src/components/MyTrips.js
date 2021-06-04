@@ -13,8 +13,10 @@ function MyTrips() {
   const [tripData, setTripData] = useState([]);
   const [userId] = useState(localStorage.getItem("userId"));
   const [token] = useState(localStorage.getItem("jwt"));
+  const [loading, setLoading] = useState(false); 
 
   useEffect(() => {
+    setLoading(true)
     const fetchData = async () => {
       const response = await axios.get(
         `https://speedo-booking.herokuapp.com/user-bookings?users_permissions_user.id=${userId}`,
@@ -27,10 +29,11 @@ function MyTrips() {
 
       setTripData(response.data);
     };
-    console.log(tripData);
+    
 
     fetchData();
-  }, []);
+    setLoading(false)
+  }, [tripData]);
 
   
 
@@ -54,11 +57,11 @@ function MyTrips() {
       <h1 className="text-4xl font-bold">Bookings</h1>
       <p className="text-2xl">Below you see your booked trips</p>
       <div className="flex flex-row flex-wrap justify-center ">
-        {tripData.map((booking) => {
+        {!loading && tripData && tripData.map((booking) => {
           return (
            
             <Booking
-              
+              id={booking.id}
               key={booking.id}
               name={booking.name}
               fromDate={booking.fromDate}
