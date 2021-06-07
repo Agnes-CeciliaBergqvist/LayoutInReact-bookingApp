@@ -68,7 +68,8 @@ export default function Store(tripId, BookTrip) {
   // const clearCart = () => {
   //   CartTrip([])
   // };
-  
+
+  //Global
   const items = useCart();
   const dispatch = useDispatchCart();
 
@@ -114,6 +115,7 @@ export default function Store(tripId, BookTrip) {
             Authorization: `Bearer ${token}`,
           },
         }
+        //Clears cart and closes Modal 
       ).then(() => {
         localStorage.removeItem("productsInCart")
         dispatch({type: "CHECKOUT"})
