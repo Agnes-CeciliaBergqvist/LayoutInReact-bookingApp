@@ -14,6 +14,8 @@ const reducer = (state, action ) => { 
             const newArr = [...state]; 
             newArr.splice(action.idx, 1); 
             return newArr; 
+        case "CHECKOUT":
+            return [];
         default: 
             throw new Error(`unknown action ${action.type}`)
     }
@@ -22,6 +24,10 @@ const reducer = (state, action ) => { 
 //Component that we can use to wrap our whole application 
 export const CartProvider = ({children}) => { 
     const [state, dispatch] = useReducer(reducer, []) //useReducer takes default value wich is an empty array 
+    
+    console.table("useContext", state)
+
+
     return (
         <CartDispatchContext.Provider value = {dispatch}>
         <CartStateContext.Provider value={state}>

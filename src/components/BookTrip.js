@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useCart, useDispatchCart } from "./BookReducer";
 import Modal from "react-modal";
+import Card from "./Card"; 
+ 
 
 
 const CartTrip = ({ trip, idx, handleRemove }) => {
@@ -35,8 +37,7 @@ const CartTrip = ({ trip, idx, handleRemove }) => {
   );
 };
 
-export default function Store(tripId) {
-
+export default function Store(tripId, BookTrip) {
 
   const customStyles = {
     content: {
@@ -62,13 +63,21 @@ export default function Store(tripId) {
   const [userId, setUserId] = useState(localStorage.getItem("userId"));
   const [token] = useState(localStorage.getItem("jwt"));
   console.log("VALUES", modalFormValues);
+  
+
+  // const clearCart = () => {
+  //   CartTrip([])
+  // };
+  
+  const items = useCart();
+  const dispatch = useDispatchCart();
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
     //console.log(userId)
     //Updating state
     setUserId(userId);
-  }, []);
+  }, [items]);
 
   function openModal() {
     // if user is logged in, setIsOpen to true
@@ -80,6 +89,7 @@ export default function Store(tripId) {
     //Same here but false because the modal will close
     setOpen(false);
   }
+
 
   function onHandleChange(e) {
     setModalFormValues({ ...modalFormValues, [e.target.name]: e.target.value });
@@ -104,7 +114,13 @@ export default function Store(tripId) {
             Authorization: `Bearer ${token}`,
           },
         }
-      );
+      ).then(() => {
+        localStorage.removeItem("productsInCart")
+        dispatch({type: "CHECKOUT"})
+        closeModal()
+      })
+      console.log(localStorage)
+
       console.log("added to userCart", response);
       //kan jag tömma min cart om response är true på något sätt? 
       // if (response(true)) { 
@@ -119,8 +135,6 @@ export default function Store(tripId) {
     }
   }
 
-  const items = useCart();
-  const dispatch = useDispatchCart();
   //const totalPrice = items.reduce((total, b) => total + b.price, 0);
 
   const handleRemove = (idx) => {
@@ -223,8 +237,7 @@ export default function Store(tripId) {
 
             <button
               className="btn text-white font-bold bg-gradient-to-r from-pink-600 to-purple-500 rounded-full h-24 w-24 flex items-center justify-center p-5 "
-              type="submit"
-             
+              type="submit" 
             >
               Confirm
             </button>
