@@ -13,15 +13,14 @@ function UpdateCard() {
         const [formValues, setFormValues] = useState(initialValues);
         const [fileData, setFileData] = useState(null);
         const [success, setSuccess] = useState(false);
-        ////const [noFile, setNoFile] = useState(false);
-
         const idToUpdate = Number(localStorage.getItem("updateTripId"))
 
         useEffect(() => {
-          axios.get(`https://speedo-booking.herokuapp.com/trips/${idToUpdate}`).then(res => {
+          axios.get(`https://speedo-booking.herokuapp.com/trips/${idToUpdate}`)
+          .then(res => {
             console.log("response", res)
             setFormValues({
-              destination: res.data.destination,
+            destination: res.data.destination,
             description: res.data.description,
             price: res.data.price,
             })

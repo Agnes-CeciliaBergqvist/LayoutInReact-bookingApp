@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useCart, useDispatchCart } from "./BookReducer";
 import Modal from "react-modal";
-import Card from "./Card"; 
+
  
 
 
@@ -37,7 +37,7 @@ const CartTrip = ({ trip, idx, handleRemove }) => {
   );
 };
 
-export default function Store(tripId, BookTrip) {
+export default function Store(tripId) {
 
   const customStyles = {
     content: {
@@ -62,12 +62,9 @@ export default function Store(tripId, BookTrip) {
   const [modalFormValues, setModalFormValues] = useState(modalInitialValues);
   const [userId, setUserId] = useState(localStorage.getItem("userId"));
   const [token] = useState(localStorage.getItem("jwt"));
+  const [productsInCart,] = useState(localStorage.getItem("productsInCart"))
   console.log("VALUES", modalFormValues);
   
-
-  // const clearCart = () => {
-  //   CartTrip([])
-  // };
 
   //Global
   const items = useCart();
@@ -75,14 +72,14 @@ export default function Store(tripId, BookTrip) {
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
-    //console.log(userId)
+    
     //Updating state
     setUserId(userId);
   }, [items]);
 
   function openModal() {
-    // if user is logged in, setIsOpen to true
-    // if not use another state for instance showLogin(true)
+    // If user is logged in, setIsOpen to true
+    // If not use another state for instance showLogin(true)
     setOpen(true);
   }
 
@@ -108,7 +105,7 @@ export default function Store(tripId, BookTrip) {
           fromDate: modalFormValues.fromDate,
           toDate: modalFormValues.toDate,
           users_permissions_user: userId,
-          tripId: tripId,
+          trip: productsInCart
         },
         {
           headers: {
@@ -122,14 +119,7 @@ export default function Store(tripId, BookTrip) {
         closeModal()
       })
       console.log(localStorage)
-
       console.log("added to userCart", response);
-      //kan jag tömma min cart om response är true på något sätt? 
-      // if (response(true)) { 
-      //   return( 
-      //     response(false)
-      //   )
-      // }
       console.log("added to userCart",tripId)
 
     } catch (error) {
@@ -137,11 +127,11 @@ export default function Store(tripId, BookTrip) {
     }
   }
 
-  //const totalPrice = items.reduce((total, b) => total + b.price, 0);
-
   const handleRemove = (idx) => {
     dispatch({ type: "REMOVE", idx });
   };
+
+  const totalPrice = items.reduce((total, b) => total + b.price, 0);
 
   if (items.length === 0) {
     return (
@@ -165,6 +155,14 @@ export default function Store(tripId, BookTrip) {
             index={idx}
           />
         ))}
+        
+        <p className="px-8 ml-4 flex flex-col font-bold">
+                Total price:{" "}
+                {totalPrice.toLocaleString("se", {
+                    style: "currency",
+                    currency: "SEK"
+                })}</p>
+        
         <button
           className="h-2/4 px-6 py-3 mt-48 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-pink-500 hover:bg-pink-600 hover:shadow-lg focus:outline-none"
           onClick={openModal}

@@ -9,6 +9,7 @@ function Success() {
                 Your trip is booked and soon you will take off!
                 If you have any questions, please contact: 
             <a className="underline" href="test@test.se">speedo@example.com</a></p>
+            <p className="font-cursive">Bon voyage!</p>
         </div>
     )
 }
