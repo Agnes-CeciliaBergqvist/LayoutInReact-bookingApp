@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import login from "./images/login.png";
 import { Link, useHistory } from "react-router-dom";
-//import ForgotPassword from "./ForgotPassword";
+import Facebook from "./Facebook"; 
 
 function Login() {
   const initialValues = {
@@ -16,6 +16,11 @@ function Login() {
   const [username, setUsername] = useState("");
   const [, setJwt] = useState("");
   const history = useHistory();
+
+
+  // FB.getLoginStatus(function(response) {
+  //   statusChangeCallback(response);
+  // });
 
   function handleOnChange(e) {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
@@ -168,6 +173,9 @@ function Login() {
                   </span>
                   Login
                 </button>
+                <div >
+                <Facebook />
+                </div>
               </div>
               <div className="font-extrabold">
                 Not a member?
