@@ -13,6 +13,7 @@ import ForgotPassword from "./ForgotPassword"
 import Success from "./Success";
 import UpdateCard from "./UpdateCard";
 import Facebook from "./Facebook"; 
+import GetUsers from "./GetUsers"; 
 
 
 
@@ -40,6 +41,7 @@ function AppRoute() { 
                     <Route exact path="/success" component={Success}/>
                     <Route exact path="/updatecard" component={UpdateCard}/>
                     <Route exact path="/facebook" component={Facebook}/>
+                    <Route exact path="getusers" component={GetUsers} />
             </Router>
         </>
     )

@@ -1,61 +1,65 @@
-import React, {Component} from "react";
+import React from "react";
 import FacebookLogin from "react-facebook-login"; 
-//import ReactDOM from 'react-dom';
+import Homepage from "./HomePage";
+import { useHistory } from "react-router-dom";
 
 
-export default class Facebook extends Component { 
+function Facebook() {
 
-    state = {
+    const FbValues = {
         isLoggedIn: false,
         userID: "", 
         name: "", 
         email: "", 
         picture: ""
-    }
-    responseFacebook = response => { 
-        // console.log(response)
-        this.setState({
-            isLoggedIn: true, 
-            userID: response.userID, 
-            name: response.name, 
-            email: response.email, 
-            picture: response.picture.data.url
-        })
+
     }
 
-    componentClicked = () => console.log("clicked")
+    const history = useHistory();
+    
 
-    render() {
+    const responseFacebook = response => { 
+        console.log(response)
 
-    let fbContent;  
+        return({
+                        isLoggedIn: true, 
+                        userID: response.userID, 
+                        name: response.name, 
+                        email: response.email, 
+                        picture: response.picture.data.url
+                    })
+    }
 
-     if(this.state.isLoggedIn) { 
+   const componentClicked = () => console.log("clicked")
+       
 
-         fbContent = (
-             <div>
-                <img src={this.state.picture} alt={this.state.name} />
-                <h2>Welcome {this.state.name}!</h2>
-                <p>Email:{this.state.email}</p>
-             </div>
-         )
 
-     }else { 
+    return ( 
+        <>
+        {FbValues.isLoggedIn ? (
+            
+            
+        <div>    
+            {/* history.push("/")   */}
+            <img src={FbValues.picture} alt={FbValues.name} />
+            <h2> Welcome {FbValues.name}!</h2>
+            <p> Email:{FbValues.email}</p>
+        </div>
 
-         fbContent = (
-             <div className="mt-2">
-                <FacebookLogin
-                appId="2633608160275783"
-                autoLoad={true}
-                fields="name,email,picture"
-                onClick={this.componentClicked}
-                callback={this.responseFacebook} />
-            </div>
+    ) : (
+        <div>
+            <FacebookLogin
+            appId="2633608160275783"
+            autoLoad={true}
+            fields="name,email,picture"
+            onClick={componentClicked}
+            callback={responseFacebook} />
 
-         );
-        }
-            return (
-                <div>
-                    {fbContent}
-                </div>
-            )
-        }}
+        </div>
+    )} 
+    </>)
+       
+    
+}
+
+export default Facebook
