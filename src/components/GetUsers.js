@@ -7,20 +7,33 @@ export default function GetUsers() {
 
 
     const [users, setUsers] = useState([]) 
+     
 
 
     useEffect(() => { 
         const fetchUsers = async () => { 
-            const response = await axios.get("https://speedo-booking.herokuapp.com/users");
-            console.log(response)
+            await axios.get("https://speedo-booking.herokuapp.com/users")
+            .then(response => { 
+                console.log(response)
+                setUsers(response.data)
+                console.log(response.data)
+                console.log(setUsers)
+            })
+            .catch(err => { 
+                console.log(err)
+            })
+            
+          
+           
 
-            setUsers(response.data)
-            console.log(setUsers)
+          
 
         }
+        
         fetchUsers();
-        console.log(fetchUsers)
-    },[users])
+        // console.log(fetchUsers)
+        
+    },[])
 
 
 
@@ -31,7 +44,7 @@ export default function GetUsers() {
             users.map((user) => { 
             return( 
                 <User
-                userId={user.userId}
+                userId={user.id}
                 user={user}
                 username={user.username}
                 email={user.email}

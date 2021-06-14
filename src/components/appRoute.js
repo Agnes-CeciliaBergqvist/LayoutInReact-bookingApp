@@ -41,7 +41,7 @@ function AppRoute() { 
                     <Route exact path="/success" component={Success}/>
                     <Route exact path="/updatecard" component={UpdateCard}/>
                     <Route exact path="/facebook" component={Facebook}/>
-                    <Route exact path="getusers" component={GetUsers} />
+                    <Route exact path="/getusers" component={GetUsers} />
             </Router>
         </>
     )
