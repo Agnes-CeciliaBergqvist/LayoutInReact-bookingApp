@@ -6,18 +6,22 @@ import User from "./User";
 export default function GetUsers() {
 
 
-    const [users, setUsers] = useState([]) 
+    const [users, setUsers] = useState([]);
+    const [loading, setLoading] = useState(false);  
      
 
 
     useEffect(() => { 
+
+        setLoading(true);
+
         const fetchUsers = async () => { 
             await axios.get("https://speedo-booking.herokuapp.com/users")
             .then(response => { 
-                console.log(response)
+                // console.log(response)
                 setUsers(response.data)
-                console.log(response.data)
-                console.log(setUsers)
+                // console.log(response.data)
+                // console.log(setUsers)
             })
             .catch(err => { 
                 console.log(err)
@@ -31,9 +35,10 @@ export default function GetUsers() {
         }
         
         fetchUsers();
+        setLoading(false);
         // console.log(fetchUsers)
         
-    },[])
+    },[users])
 
 
 
@@ -52,11 +57,10 @@ export default function GetUsers() {
                 </table>
             </div>
                
-            { 
-            users.map((user) => { 
+            {!loading && users.map((user) => { 
             return( 
                 <User
-                key="id"
+                key={user.id}
                 userId={user.id}
                 user={user}
                 username={user.username}

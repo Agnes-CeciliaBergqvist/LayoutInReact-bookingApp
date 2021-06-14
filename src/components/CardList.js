@@ -11,7 +11,9 @@ export default function CardList() {
   const [tripsPerPage] = useState(3); //How many pages do we want to se on every page
 
   useEffect(() => {
+
     setLoading(true);
+    
     const fetchTrips = async () => {
       const response = await axios.get("https://speedo-booking.herokuapp.com/trips");
       //console.log(response)
