@@ -39,16 +39,30 @@ export default function GetUsers() {
 
 
     return (
-        <div>
+        <div className="h-screen bg-white">
+            <div class="bg-white overflow-auto">
+                <table class="min-w-full bg-white">
+                    <thead class="bg-gray-800 text-white">
+                        <tr>
+                            <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">UserId</th>
+                            <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Username</th>
+                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Email</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+               
             { 
             users.map((user) => { 
             return( 
                 <User
+                key="id"
                 userId={user.id}
                 user={user}
                 username={user.username}
                 email={user.email}
                 />
+                
                 
             )
         })}</div>
