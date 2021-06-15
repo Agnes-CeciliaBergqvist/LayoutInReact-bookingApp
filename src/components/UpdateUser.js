@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 
-export default function UpdateUser(userId) {
+export default function UpdateUser() {
     
     const initialValues = {
         username: "",
@@ -12,10 +12,11 @@ export default function UpdateUser(userId) {
     
       const [formValues, setFormValues] = useState(initialValues);
       const [success, setSuccess] = useState(false);
+      const userToUpdate = Number(localStorage.getItem("updateUserId"))
       
 
       useEffect(() => {
-        axios.get(`https://speedo-booking.herokuapp.com/users/${userId}`)
+        axios.get(`https://speedo-booking.herokuapp.com/users/${userToUpdate}`)
         .then(res => {
           console.log("response", res)
           setFormValues({
@@ -35,7 +36,7 @@ export default function UpdateUser(userId) {
       function handleOnSubmit(e) {
         e.preventDefault();
 
-            axios.put(`https://speedo-booking.herokuapp.com/users/`, formValues
+            axios.put(`https://speedo-booking.herokuapp.com/users/${userToUpdate}`, formValues
             )
             .then(() => {
               setFormValues(initialValues);

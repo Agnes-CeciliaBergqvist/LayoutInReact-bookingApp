@@ -1,7 +1,6 @@
 import axios from "axios";
-import React, {useState, useEffect, useRef, useCallback}  from "react";
+import React, {useState, useEffect}  from "react";
 import {Link} from "react-router-dom"; 
-import GetUsers from "./GetUsers";
 
 
 export default function User() {
@@ -67,8 +66,9 @@ export default function User() {
         
     }
 
-   const updateUser = (id) => { 
-       console.log(id)
+   const updateUser = (event) => { 
+       localStorage.setItem("updateUserId", event.target.name )
+       
 
    }
    
@@ -87,7 +87,7 @@ export default function User() {
                             <td className="w-1/3 text-left py-3 px-4">{user.username}</td>
                             <td className="text-left py-3 px-4">{user.email}
                                 <button className="py-2 m-1 px-1 text-xs uppercase font-bold leading-snug bg-red-500 text-yellow-900 rounded-md"onClick={handleDelete} name={user.id}>Delete</button>
-                               <Link to="/updateuser"><button className="py-2 m-1 px-1  text-xs uppercase font-bold leading-snug bg-yellow-400 text-yellow-900 rounded-md" onClick={updateUser}>Change</button></Link>
+                               <Link to="/updateuser"><button className="py-2 m-1 px-1  text-xs uppercase font-bold leading-snug bg-yellow-400 text-yellow-900 rounded-md" name={user.id} onClick={updateUser}>Change</button></Link>
                             </td>
                         </tr>
                     </thead>
