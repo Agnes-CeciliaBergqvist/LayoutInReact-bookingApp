@@ -398,6 +398,17 @@ function Menu() {
                 </li>
 
                 <li className="nav-item">
+                  <Link
+                    onClick={() => setNavbarOpen(!navbarOpen)}
+                    to="/contactform"
+                    className="hover:bg-gray-700 hover:text-white px-3 py-2 m-1 flex items-center text-xs uppercase font-bold leading-snug"
+                    aria-current="page"
+                  >
+                    Contact
+                  </Link>
+                </li>
+
+                <li className="nav-item">
                   <Link to="/registration">
                     <button
                       onClick={() => setNavbarOpen(!navbarOpen)}

@@ -15,6 +15,7 @@ import UpdateCard from "./UpdateCard";
 import Facebook from "./Facebook"; 
 import GetUsers from "./GetUsers";
 import UpdateUser from "./UpdateUser"; 
+import ContactForm from "./ContactForm";
 
 
 
@@ -45,6 +46,7 @@ function AppRoute() { 
                     <Route exact path="/facebook" component={Facebook}/>
                     <Route exact path="/getusers" component={GetUsers} />
                     <Route exact path="/updateuser" component={UpdateUser} />
+                    <Route exact path="/contactform" component={ContactForm} />
                     
             </Router>
         </>
