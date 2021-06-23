@@ -11,8 +11,7 @@ import HomePage from "./HomePage";
 import NotLoggedIn from "./NotLoggedIn"; 
 import ForgotPassword from "./ForgotPassword"
 import Success from "./Success";
-import UpdateCard from "./UpdateCard";
-import Google from "./Google"; 
+import UpdateCard from "./UpdateCard"; 
 import GetUsers from "./GetUsers";
 import UpdateUser from "./UpdateUser"; 
 import ContactForm from "./ContactForm";
@@ -43,7 +42,6 @@ function AppRoute() { 
                     <Route exact path="/forgotpassword" component={ForgotPassword} />
                     <Route exact path="/success" component={Success}/>
                     <Route exact path="/updatecard" component={UpdateCard}/>
-                    <Route exact path="/google" component={Google}/>
                     <Route exact path="/getusers" component={GetUsers} />
                     <Route exact path="/updateuser" component={UpdateUser} />
                     <Route exact path="/contactform" component={ContactForm} />

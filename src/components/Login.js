@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import login from "./images/login.png";
 import { Link, useHistory } from "react-router-dom";
-import Google from "./Google"; 
+
 
 function Login() {
   const initialValues = {
@@ -173,9 +173,7 @@ function Login() {
                   </span>
                   Login
                 </button>
-                <div >
-                <Google />
-                </div>
+                
               </div>
               <div className="font-extrabold">
                 Not a member?
