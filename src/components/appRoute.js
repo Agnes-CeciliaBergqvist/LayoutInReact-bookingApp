@@ -16,13 +16,6 @@ import GetUsers from "./GetUsers";
 import UpdateUser from "./UpdateUser"; 
 import ContactForm from "./ContactForm";
 
-
-
-
-
-
-
-
 import {Route, BrowserRouter as Router} from "react-router-dom"; 
 
 function AppRoute() { 

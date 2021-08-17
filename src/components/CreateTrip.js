@@ -31,6 +31,7 @@ function CreateTrip() {
       setNoFile(true);
       return "test";
     }
+    //test för att pusha ny info 
 
     axios
       .post("https://speedo-booking.herokuapp.com/trips", {
