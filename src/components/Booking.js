@@ -1,5 +1,5 @@
 import React from "react";
-import axios from"axios";
+import axios from "axios";
 import { loadStripe } from "@stripe/stripe-js";
 
 
@@ -7,17 +7,17 @@ const stripePromise = loadStripe('pk_test_51Ix6LSGaMeFrhWKCWoo8WGQUmzbv7fFkSjdEP
 
 
 
-function Booking({ id, name, fromDate, toDate, mobile , price }) {
+function Booking({ id, name, fromDate, toDate, mobile, price }) {
 
-   //Code for handeling the onclick function for checkout 
-   const handleClick = async (event) => {
-     event.preventDefault()
+  //Code for handeling the onclick function for checkout 
+  const handleClick = async (event) => {
+    event.preventDefault()
     // Get Stripe.js instance
     const stripe = await stripePromise;
 
     // Call your backend to create the Checkout Session
-    const response = await axios.post("https://speedo-stripe.herokuapp.com/create-checkout-session", {name:name})
-   
+    const response = await axios.post("https://speedo-stripe.herokuapp.com/create-checkout-session", { name: name })
+
 
     console.log(response)
     const session = response.data.id
@@ -43,8 +43,8 @@ function Booking({ id, name, fromDate, toDate, mobile , price }) {
 
 
   }
-  
- 
+
+
 
   return (
     <div className="">
@@ -59,13 +59,13 @@ function Booking({ id, name, fromDate, toDate, mobile , price }) {
           Cancel
         </button>
         <button role="link"
-            onClick={handleClick} className="m-1.5 text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
-              checkout
-            </button>
+          onClick={handleClick} className="m-1.5 text-indigo-500 px-4 py-3 bg-gray-300 rounded hover:bg-indigo-500 hover:text-white transition duration-300">
+          checkout
+        </button>
       </div>
     </div>
   );
-  
+
 }
 
 

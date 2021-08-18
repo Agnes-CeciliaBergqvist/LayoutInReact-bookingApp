@@ -18,10 +18,6 @@ function Login() {
   const history = useHistory();
 
 
-  // FB.getLoginStatus(function(response) {
-  //   statusChangeCallback(response);
-  // });
-
   function handleOnChange(e) {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   }

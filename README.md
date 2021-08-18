@@ -1,8 +1,5 @@
-Creating an booking app for last minute travel as a school project. For now this is only the layout, I will keep working on the project during our course in React.
+Created an booking page as a school assigment. Here you can registrate as a new user and book a trip, get you booking details and do the "payment". 
+If you are logged in as a admin you can add, delete and update trips and delete user profiles.  
+
 Link to deployment on Netlify
 https://heuristic-archimedes-2e4bb9.netlify.app/
-<<<<<<< HEAD
-
-Testing to se if connecting to correct project
-=======
->>>>>>> 327e8522219c1c0f74287357cbb13edc75ba757b
