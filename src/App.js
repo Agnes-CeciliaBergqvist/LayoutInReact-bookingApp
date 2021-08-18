@@ -1,22 +1,19 @@
-import './App.css';
-import './components/style.css';
-import AppRoute from "./components/appRoute";
+import './App.css'
+import './components/style.css'
+import AppRoute from './components/appRoute'
 
-import Footer from "./components/Footer"; 
+import Footer from './components/Footer'
 
-
-
-function App() {
+function App () {
   return (
-    <div className="App">
+    <div className='App'>
 
-      
-      <AppRoute/>
-      
-       <Footer/>
-    
+      <AppRoute />
+
+      <Footer />
+
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
