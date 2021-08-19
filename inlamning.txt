@@ -1,0 +1,27 @@
+Vad är en CMS, headless cms, Firebase/serverless/backend as a service?
+
+CMS står för Content Management System och används för att hantera och publicera innehåll, 
+tex produkter eller blogginlägg. En headless CMS består främst av backend-delen och använder sig 
+av en API för att kunna koppla innehållet till en frontendapplikation. Headless CMS har som huvuduppgift
+att hantera innehåll, till skillnad från en traditionell CMS som både hanterar och publicerar.
+Fördelen med headless CMS är att du enklare kan “flytta” din kod och du kan koppla upp dig till CMS:ens API både 
+i webbsidor, mobilappar och IoT-produkter. 
+
+Skillnaden mellan cms och backend as a service?
+
+En headless CMS är event-drivna, alltså när de triggas av ett specifikt event så körs funktionen.
+Backend as a service (BaaS) är oftast inte evendrivna utan använder de inbyggda funktioner som tjänsten 
+(tex Firebase) har skapat. BaaS erbjuder oftast mer än bara innehållshantering, exempelvis notifikationer, 
+annonsering, analys och hosting.
+
+
+Vilket sammanhang ska man använda headless cms och vanlig cms?
+
+Då en vanlig CMS både hanterar och publicerar innehåll är det att föredra när du vill att användare av systemet 
+(webbredaktör) både ska kunna skapa och se innehållet direkt.
+Wordpress är ett exempel på ett vanligt CMS och som kan användas av personer med ingen eller liten programmeringskunskap. 
+Det är perfekt när man kontinuerligt vill uppdatera sin hemsida med text, bilder och layout utan att behöva gå via utvecklaren. 
+Med en headless CMS krävs att webbredaktören har viss kunskap inom programmering och känner sig bekväm med admin-dashboarden i 
+program som Strapi. Headless CMS kan även passa bättre för webbapplikationer där användaren är den som “skapar” innehållet på
+hemsidan, och därmed inte behöver utvecklaren för att uppdatera sidan. Exempelvis vid registrering av ny användare, boka hotell 
+eller uppdatera adress på sin personliga kontosida. Detta sköts då automatiskt med hjälp av API:er från headless CMS-verktyget. 
